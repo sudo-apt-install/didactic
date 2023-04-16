@@ -36,3 +36,23 @@
 // formatting and finalizing html and css for app.
   // create custom classes/IDs as needed
 // Slide show
+
+
+// division
+
+// terrell
+  // front end, searchbar area
+
+// Karl
+  // figure out cards population
+
+// Jess
+  // API calls
+
+// Marquise
+  // functions running, event listeners
+
+// Oscar
+  // help on front-end or join Jess, or both.  
+
+  // COMMENTS AND descriptive VARIABLE NAMES
