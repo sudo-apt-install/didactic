@@ -5,3 +5,31 @@
     --acid-green: #B3D92B;
     --morty-yellow: #F5F582;
 }
+/* Universal Selectors */
+*, *:before, *:after {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Element selectors */
+
+/* Class Selectors */
+.cards {
+    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+    margin: 5px;
+    color: var(--rick-blue);
+    border: 3px solid var(--acid-green);
+    background-color: var(--space-black);
+    height: 59%;
+    width: 30%;
+    border-radius: 10px;
+}
+/* ID Selectors */
+
+#card-list{
+
+}
+
+/* Media Queries */
+
+
