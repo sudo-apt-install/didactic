@@ -127,5 +127,6 @@ www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
 www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
 */
 
+
 // TODO function to SHOW the cocktail to the user, populate the cocktail cards:
 function showCocktail(data) {};
