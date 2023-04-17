@@ -183,7 +183,7 @@ function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient)
 
 
 function showCocktailTwoIngredients() {baseLiquor, firstIngredient, secondIngredient};
-=======
+
 function getCocktailIngredients(cocktailNumber) {
   ingredientQueryUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailNumber}`;
   fetch(ingredientQueryUrl, {
