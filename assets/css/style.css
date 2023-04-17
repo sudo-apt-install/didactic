@@ -13,6 +13,7 @@
 
 /* Element selectors */
 
+
 /* Class Selectors */
 .cards {
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
@@ -20,11 +21,39 @@
     color: var(--rick-blue);
     border: 3px solid var(--acid-green);
     background-color: var(--space-black);
-    height: 59%;
-    width: 30%;
+    /* height: 50dvh;
+    width: 50dvw; */
     border-radius: 10px;
+    box-shadow: 1px 2px 2px 0 #aaa;
+}
+.cards img {
+    border-radius: 20px;
+    border: 3px solid var(--acid-green);
+}
+.card-1 {
+    z-index: 6;
+    transform: rotateZ(-5deg);
+}
+.card-2 {
+    z-index: 5;
+    transform: rotateZ(-2deg);
+}
+.card-3 {
+    z-index: 4;
+    transform: rotateZ(0deg);
+}
+.card-4 {
+    z-index: 3;
+    transform: rotateZ(2deg);
+}
+.card-5 {
+    z-index: 2;
+    transform: rotateZ(5deg);
 }
 /* ID Selectors */
+#card-content{
+
+}
 
 #card-list{
 

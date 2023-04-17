@@ -183,7 +183,7 @@ function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient)
 
 
 function showCocktailTwoIngredients() {baseLiquor, firstIngredient, secondIngredient};
-=======
+
 function getCocktailIngredients(cocktailNumber) {
   ingredientQueryUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailNumber}`;
   fetch(ingredientQueryUrl, {
@@ -226,7 +226,7 @@ function displayCards(){
 
 
     // cardList.append(`
-    // <li class=`cards card-${[i]}`>
+    // <li class=`cards card-${[i] + 1}`>
     //       <div id='drink-card'>
     //         <h3>`${characterName}`'s Drink</h3>
     //         <img src=`${characterImg}`>
