@@ -2,7 +2,7 @@
 var baseLiqourChoices = JSON.parse(localStorage.getItem("base-liquor-choices")) || [];
 
 // function to save base liqour input to local storage
-function saveCity() {
+function saveBaseLiquor() {
   localStorage.setItem("base-liquor-choices", JSON.stringify('base-liquor'));
 };
 
@@ -30,7 +30,7 @@ submitBtnEl.addEventListener('click', function (event) {
     alert('you gotta choose a base liquor');
     return;
   }
-  // clear base liqour input field after submission
+  // clear base liquor input field after submission
   baseLiquorEl.value = '';
 
   if (!baseLiquorChoices.includes(baseLiquor)) {
@@ -145,5 +145,5 @@ function getCocktail(cocktail) {
     })
 };
 
-// !function to SHOW the cocktail to the user, populate the cocktail cards:
+// TODO function to SHOW the cocktail to the user, populate the cocktail cards:
 function showCocktail(data) {};
