@@ -97,13 +97,13 @@ function getCocktail(cocktail) {
 };
 
 
-var cocktailNameEl = document.getElementById('cocktail-name')    
+var cocktailNameEl = document.getElementById('cocktail-name')
 cocktailNameEl.textContent = cocktail;
 
 
 // function to get the cocktail ID number, depending on user input(s)
 APIkey = 1;
-function getCocktailBaseOnlyID(baseLiquor) { 
+function getCocktailBaseOnlyID(baseLiquor) {
   cocktailQueryUrl = `www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}`;
   fetch(cocktailQueryUrl, {
     method: 'GET',
@@ -122,7 +122,7 @@ function getCocktailBaseOnlyID(baseLiquor) {
     })
 };
 
-function getCocktailWithFirstIngrID(baseLiquor, firstIngredient) { 
+function getCocktailWithFirstIngrID(baseLiquor, firstIngredient) {
   cocktailQueryUrl = `https://www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}&i=${firstIngredient}`;
   fetch(cocktailQueryUrl, {
     method: 'GET',
@@ -141,7 +141,7 @@ function getCocktailWithFirstIngrID(baseLiquor, firstIngredient) {
     })
 };
 
-function getCocktailWithSecondIngrID(baseLiquor, secondIngredient) { 
+function getCocktailWithSecondIngrID(baseLiquor, secondIngredient) {
   APIkey = 1;
   cocktailQueryUrl = `https://www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}&i=${secondIngredient}`;
   fetch(cocktailQueryUrl, {
@@ -161,7 +161,7 @@ function getCocktailWithSecondIngrID(baseLiquor, secondIngredient) {
     })
 };
 
-function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient) { 
+function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient) {
   cocktailQueryUrl = `https://www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}&i=${firstIngredient}&i=${secondIngredient}`;
   fetch(cocktailQueryUrl, {
     method: 'GET',
@@ -260,4 +260,23 @@ function showCocktail(data) {
 
 // TODO function to SHOW the cocktail data to the user, populate the cocktail cards:
 
+
 function showCocktail(data) {};
+
+
+// DATA from the function getCocktailIngredients:
+  // this would show data for specific drink at index[i]
+    // location DRINK NAME: data.drinks[i].strDrink;
+    // location of DRINK PIC: data.drinks[i].strDrinkThumb;
+    // location GLASS TYPE: data.drinks[i].strGlass; 
+    // location INGREDIENTS: data.drinks[i].strIngredient1;  the last number goes 1-15 depending on how many ingredients
+    // location INSTRUCTIONS: data.drinks[i].strInstructions;
+    // location MEASUREMENT: data.drinks[i].strMeasure1;   the last number goes 1-15 depending on how many measurements (one measure per ingredient).
+
+// DATA from the functions for IDs
+    // location DRINK NAME: data.drinks[i].strDrink;
+    // location of DRINK PIC: data.drinks[i].strDrinkThumb;
+    // location ID: data.drinks[i].idDrink;
+
+    // yes, both functions pull drink name and pic data
+
