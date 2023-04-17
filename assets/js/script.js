@@ -23,23 +23,25 @@ submitBtnEl.addEventListener('click', function (event) {
 
   // base liquor
   var baseLiquorEl = document.getElementById('base-liquor-input');
-  var city = baseLiquorEl.value;
+  var baseLiquor = baseLiquorEl.value;
   if (!baseliquor) {
 
-    // we need to use a modal here, not an alert
+    // !we need to use a modal here, not an alert
     alert('you gotta choose a base liquor');
     return;
   }
   // clear base liqour input field after submission
   baseLiquorEl.value = '';
 
-  if (!baseLiquorChoices.includes(baseliquor)) {
+  if (!baseLiquorChoices.includes(baseLiquor)) {
     baseLiquorChoices.push(baseLiquor);
     saveBaseLiquor();
   };
 
 
   // first ingredient
+  var firstIngredientEl = document.getElementById('first-ingredient-input');
+  var firstIngredient = firstIngredientEl.value.trim();
   if (!firstIngredient) {
     return;
   }
@@ -53,6 +55,8 @@ submitBtnEl.addEventListener('click', function (event) {
 
 
   // second ingredient
+  var secondIngredientEl = document.getElementById('first-ingredient-input');
+  var secondIngredientEl = secondIngredientEl.value.trim();
   if (!SecondIngredient) {
     return;
   }
@@ -76,46 +80,46 @@ function getBaseLiquor(baseLiquor) {
     credentials: 'same-origin',
     redirect: 'follow',
   })
-  
-  .then(function (response) {
-    if (!response.ok) {
-      throw new Error('Bad network response');
-    }
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    if (data.length === 0) {
-      // we need to use a modal here, not an alert
-      alert('lubba-dubba-dub-dub!  No results, try again!');
-    }
-    
-    getBaseLiquor(baseLiquor);
-  })
+
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error('Bad network response');
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      if (data.length === 0) {
+        // !we need to use a modal here, not an alert
+        alert('lubba-dubba-dub-dub!  No results, try again!');
+      }
+
+      getBaseLiquor(baseLiquor);
+    })
 };
 
 // function to get ingredients
 function getIngredients(ingredientOne, ingredientTwo) {
-  
+
   queryUrl = `cd ..`
-  
+
   fetch(ingredientQueryUrl, {
     method: 'GET',
     credentials: 'same-origin',
     redirect: 'follow',
   })
-  
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    
-    getIngredients(ingredientOneData, ingredientTwoData)
-  });
+
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+
+      getIngredients(ingredientOneData, ingredientTwoData)
+    });
 };
 
-// function to get cocktail - going to have to combine the other results so this function is INCOMPLETE
+// !function to get cocktail - going to have to combine the other results so this function is INCOMPLETE
 function getCocktail(cocktail) {
   cocktailQueryUrl = ``;
   fetch(cocktailQueryUrl, {
@@ -141,6 +145,5 @@ function getCocktail(cocktail) {
     })
 };
 
-// function to SHOW the cocktail to the user, populate the cocktail cards:
-
-function showCocktail(data)
+// !function to SHOW the cocktail to the user, populate the cocktail cards:
+function showCocktail(data) {};
