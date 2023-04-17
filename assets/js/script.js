@@ -118,7 +118,6 @@ function showCocktailFirstIngredient(baseLiquor, firstIngredient) {};
 function showCocktailFirstIngredient(baseLiquor, secondIngredient) {};
 
 function showCocktailTwoIngredients() {baseLiquor, firstIngredient, secondIngredient};
-=======
 
 /*
 Search by ingredient style query using "1" as the API key
@@ -128,4 +127,49 @@ www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
 */
 
 // TODO function to SHOW the cocktail to the user, populate the cocktail cards:
-function showCocktail(data) {};
+
+// TODO card display functions
+function displayCards(){
+
+  // loop through the 5 options 
+  var cardData; // = (pulled data for character and drink)
+  $.each(cardData, (i) =>{
+    var cardList = $('#card-list');
+    var characterImg; // = cardData[i].avatar;
+    var characterName; // = cardData[i].name;
+    var drinkImg; // = cardData[i].image;
+    var drinkName; // = cardData[i].name;
+
+
+    // cardList.append(`
+    // <li class=`cards card-${[i]}`>
+    //       <div id='drink-card'>
+    //         <h3>`${characterName}`'s Drink</h3>
+    //         <img src=`${characterImg}`>
+    //         <div id="card-content">
+    //           <h4>`${drinkName}`</h4>
+    //           <img src=`${drinkImg}`>
+    //           <h5>ingredients</h5>
+    //           <ul id='ingredient-list'> // for loop for ingredients
+    //             //<li>`${ingredient[0]}`</li>
+    //             //<li>`${ingredient[1]}`</li>
+    //             //<li>`${ingredient[2]}`</li>
+    //           </ul>
+    //           <h4>Directions</h4>
+    //           <ol id='directions-list'> //for loop for directions
+    //             //<li>`${direction[0]}`</li>
+    //             //<li>`${direction[1]}`</li>
+    //             //<li>`${direction[2]}`</li>
+    //           </ol>
+    //         </div>
+    //       </div>
+    //     </li>
+    // `)
+  })
+  showCocktail();
+};
+
+
+function showCocktail(data) {
+
+};
