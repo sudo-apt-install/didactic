@@ -24,7 +24,7 @@ submitBtnEl.addEventListener('click', function (event) {
   // base liquor
   var baseLiquorEl = document.getElementById('base-liquor-input');
   var baseLiquor = baseLiquorEl.value;
-  if (!baseliquor) {
+  if (!baseLiquor) {
 
     // !we need to use a modal here, not an alert
     alert('you gotta choose a base liquor');
