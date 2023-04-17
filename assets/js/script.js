@@ -226,7 +226,7 @@ function displayCards(){
 
 
     // cardList.append(`
-    // <li class=`cards card-${[i]}`>
+    // <li class=`cards card-${[i] + 1}`>
     //       <div id='drink-card'>
     //         <h3>`${characterName}`'s Drink</h3>
     //         <img src=`${characterImg}`>
