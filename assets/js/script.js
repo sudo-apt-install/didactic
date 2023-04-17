@@ -77,7 +77,7 @@ function getCocktail(cocktail) {
 
   if (data.length === 0) {
     // !we need to use a modal here, not an alert
-    alert('lubba-dubba-dub-dub!  No results, try again!');
+    alert('wubba-lubba-dub-dub!  No results, try again!');
   }
   if (baseLiquor && !firstIngredient && !secondIngredient) {
     getCocktailBaseOnlyID(baseLiquor);
@@ -183,7 +183,7 @@ function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient)
 
 
 function showCocktailTwoIngredients() {baseLiquor, firstIngredient, secondIngredient};
-=======
+
 function getCocktailIngredients(cocktailNumber) {
   ingredientQueryUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailNumber}`;
   fetch(ingredientQueryUrl, {
