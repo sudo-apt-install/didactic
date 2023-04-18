@@ -15,7 +15,13 @@
     background-color: var(--space-black);
 }
 /* Element selectors */
-
+.grid-container-main {
+    padding-right: 0.625rem;
+    padding-left: 0.625rem;
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto; 
+}
 
 /* Class Selectors */
 .cards {
