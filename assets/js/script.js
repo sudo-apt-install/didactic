@@ -202,8 +202,38 @@ function getCocktailIngredients(cocktailID) {
     .then(function (data) {
       console.log(data);
     })
+
+  return drinkDetails = {
+    cocktailName: data.drinks[i].strDrink, 
+    cocktailImg: data.drinks[i].strDrinkThumb,
+    glassType: data.drinks[i].strGlass,
+    ingredients: data.drinks[i].strIngredient[j],
+    instructions: data.drinks[i].strInstructions,
+    measurements: [data.drinks[i].strMeasure[k]]
+  }
+};
+// for loops for ingredients and measurement arrays
+// drinkDetails.ingredients.forEach(function(ingredients, j) {
+//   var ingredients = document.createElement('h3');
+//   PARENT.appendChild(ingredients);
+// });
+
+// drinkDetails.measurements.forEach(function(measurements, k) {
+//   var measurements = document.createElement('h5');
+//   PARENT.appendChild(measurements);
+// })
+
+for (var j = 1; j < 16; j++) {
+  var ingredients = document.createElement('h3');
+  PARENT.appendChild(ingredients);
+  ingredients.textContent = [data.drinks[i].strIngredient[j]];
 };
 
+for (var k = 1; k < 16; k++) {
+  var measurements = document.createElement('li');
+  PARENT.appendChild(measurements);
+  measurements.textContent = [data.drinks[i].strMeasure[k]];
+};
 
 /*
 Search by ingredient style query using "1" as the API key
@@ -261,6 +291,8 @@ function displayCards(){
 function showCocktail(data) {
 
 };
+
+
 
 // class toggle for opening card set
 
