@@ -231,8 +231,12 @@ for (var j = 1; j < 16; j++) {
 
 for (var k = 1; k < 16; k++) {
   var measurements = document.createElement('li');
+  if (data.drinks[i].strMeasure[k] == null) {
+    return null;
+  } else {
   PARENT.appendChild(measurements);
   measurements.textContent = [data.drinks[i].strMeasure[k]];
+  }
 };
 
 /*
@@ -253,7 +257,7 @@ function displayCards(){
   var mortyArray; 
   $.each(drinkArray, (i) =>{
     var cardList = $('#card-list');
-    var characterImg; // = cardData[i].avatar;
+    var characterImg; // = cardData[i].image;
     var characterName; // = cardData[i].name;
     var drinkImg; // = cardData[i].image;
     var drinkName; // = cardData[i].name;
