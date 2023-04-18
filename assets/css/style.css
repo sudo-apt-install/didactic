@@ -75,8 +75,37 @@
 
 /* Form Styling */
 
+/* Header Nav Styling */
 
-
+header {
+    align-items: center;
+    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+    margin: 0 auto 20px;
+    color: var(--rick-blue);
+    border: 3px solid var(--acid-green);
+    background-color: var(--space-black);
+    border-radius: 10px;
+    box-shadow: 1px 2px 2px 0 #aaa;
+    position: relative;
+    overflow: hidden;
+    list-style-type: none;
+    transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+  
+/* Header Image Styling */
+header img {
+    border: 3px solid var(--acid-green);
+    background-color: var(--space-black);
+    border-radius: 10px;
+    box-shadow: 1px 2px 2px 0 #aaa;
+    position: relative;
+    overflow: hidden;
+    list-style-type: none;
+    transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding-top: 10;
+    padding-left: 10;
+    padding-right: 10;
+}
   
   
 
