@@ -1,9 +1,9 @@
 // array of base liquor choices, if empty set up array
-var baseLiquorChoices = JSON.parse(localStorage.getItem("base-liquor-choices")) || [];
+var baseLiquorChoices = [JSON.parse(localStorage.getItem("base-liquor-choices"))] || [];
 
 // function to save base liqour input to local storage
-function saveBaseLiquor() {
-  localStorage.setItem("base-liquor-choices", JSON.stringify('base-liquor'));
+function saveBaseLiquor(liquor) {
+  localStorage.setItem("base-liquor-choices", JSON.stringify(liquor));
 };
 
 // array of all ingredient choices, if empty set up array
@@ -22,8 +22,8 @@ submitBtnEl.addEventListener('click', function (event) {
 
 
   // base liquor
-  var baseLiquorEl = document.getElementById('base-liquor-input');
-  var baseLiquor = baseLiquorEl.value;
+  var baseLiquorEl = document.getElementById('drop-down');
+  var baseLiquor = baseLiquorEl.options[baseLiquorEl.selectedIndex].value;
   if (!baseLiquor) {
 
     // !we need to use a modal here, not an alert
@@ -34,16 +34,17 @@ submitBtnEl.addEventListener('click', function (event) {
   baseLiquorEl.value = '';
 
   if (!baseLiquorChoices.includes(baseLiquor)) {
+    console.log(baseLiquor);
     baseLiquorChoices.push(baseLiquor);
-    saveBaseLiquor();
+    saveBaseLiquor(baseLiquor);
   };
 
 
   // first ingredient
   var firstIngredientEl = document.getElementById('first-ingredient-input');
-  var firstIngredient = firstIngredientEl.value.trim();
+  var firstIngredient = firstIngredientEl.textContent.trim();
   if (!firstIngredient) {
-    return;
+    return null;
   }
   // clear first ingredient input field after submission
   firstIngredient.value = '';
@@ -59,7 +60,7 @@ submitBtnEl.addEventListener('click', function (event) {
   var secondIngredientEl = document.getElementById('first-ingredient-input');
   var secondIngredient = secondIngredientEl.value.trim();
   if (!secondIngredient) {
-    return;
+    return null;
   }
   // clear second ingredient input field after submission
   secondIngredient.value = '';
@@ -98,6 +99,7 @@ function getCocktailID(data) {
 
   // get list of ingredients and directions etc.
   getCocktailIngredients(data.drinks[i].idDrink);
+  console.log(data.drinks[i].idDrink);
 
 };
 
@@ -186,7 +188,7 @@ function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient)
 };
 
 // function for getting rest of ingredients and directions depending on cocktail ID
-var cocktailID = data.drinks[i].idDrink
+var cocktailID = data.drinks[0].idDrink
 function getCocktailIngredients(cocktailID) {
   ingredientQueryUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailID}`;
   fetch(ingredientQueryUrl, {
@@ -231,12 +233,12 @@ for (var j = 1; j < 16; j++) {
 
 for (var k = 1; k < 16; k++) {
   var measurements = document.createElement('li');
-  if (data.drinks[i].strMeasure[k] == null) {
-    return null;
-  } else {
+  // if (data.drinks[i].strMeasure[k] == null) {
+  //   return null;
+  // } else {
   PARENT.appendChild(measurements);
   measurements.textContent = [data.drinks[i].strMeasure[k]];
-  }
+  // }
 };
 
 /*
@@ -292,9 +294,9 @@ function displayCards(){
 };
 
 
-function showCocktail(data) {
+// function showCocktail(data) {
 
-};
+// };
 
 
 
