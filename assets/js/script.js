@@ -258,10 +258,12 @@ function showCocktail(data) {
 
 };
 
-// TODO function to SHOW the cocktail data to the user, populate the cocktail cards:
-
-
-function showCocktail(data) {};
+// class toggle for opening card set
+$(document).ready(() =>{
+$('#card-list').on('click', () =>{
+  $(this).toggleClass('transition')
+})
+});
 
 
 // DATA from the function getCocktailIngredients:
