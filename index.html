@@ -13,9 +13,22 @@
   </head>
   <body>
 
+<!--Header with Image-->
+    <header>
+
+      <div class="header-image" >
+<img src="./assets/Images/rickToast.jpeg" alt="header image">
+    </div>
+
+      <h1 class=""> Morty's Book of Schwifty Ricktails</h1>
+    
+    </header>
+    
+    
+
 <!--Testing Reveal Modal -->
 
-<p><button class="button" data-open="exampleModal1">Click me for a modal</button></p>
+<!--<p><button class="button" data-open="exampleModal1">Click me for a modal</button></p>-->
 
 <div class="reveal" id="exampleModal1" data-reveal>
   <h1>Awesome. I Have It.</h1>
@@ -25,6 +38,43 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
+<!--Form for data request from user-->
+
+<form>
+  <div class="grid-container">
+    <div class="grid-x grid-padding-x">
+
+      <!--Base Liquor Field-->
+      <div class="medium-12 cell">
+        <label for="base-liqour-input">Select your base liquor 
+          <select>
+            <option value="brandy"> Brandy </option>
+            <option value="gin"> Gin </option>
+            <option value="rum"> Rum </option>
+            <option value="tequila"> Tequila </option>
+            <option value="vodka"> Vodka </option>
+            <option value="whiskey"> Whiskey </option>
+          </select>
+        </label>
+      </div>
+
+      <!--First Ingredient Field-->
+      <div class="medium-6 cell">
+        <label for="first-ingredient-input">Type first Ingredient
+          <input id="first-ingredient-inout" type="text" placeholder="ex. Sprite" >
+        </label>
+      </div>
+
+      <!--Second Ingredient Field-->
+      <div class="medium-6 cell">
+        <label for="second-ingredient-input" >Type Second Ingredient
+          <input id="second-ingredient-input" type="text" placeholder="ex. Orange Juice">
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
 
 
     <!-- <div class="add-foundation-container"></div> -->
