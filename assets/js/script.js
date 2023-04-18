@@ -219,8 +219,9 @@ www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
 function displayCards(){
 
   // loop through the 5 options 
-  var cardData; // = (pulled data for character and drink)
-  $.each(cardData, (i) =>{
+  var drinkArray; // = (pulled data for character and drink)
+  var mortyArray; 
+  $.each(drinkArray, (i) =>{
     var cardList = $('#card-list');
     var characterImg; // = cardData[i].avatar;
     var characterName; // = cardData[i].name;
@@ -228,30 +229,30 @@ function displayCards(){
     var drinkName; // = cardData[i].name;
 
 
-    // cardList.append(`
-    // <li class=`cards card-${[i] + 1}`>
-    //       <div id='drink-card'>
-    //         <h3>`${characterName}`'s Drink</h3>
-    //         <img src=`${characterImg}`>
-    //         <div id="card-content">
-    //           <h4>`${drinkName}`</h4>
-    //           <img src=`${drinkImg}`>
-    //           <h5>ingredients</h5>
-    //           <ul id='ingredient-list'> // for loop for ingredients
-    //             //<li>`${ingredient[0]}`</li>
-    //             //<li>`${ingredient[1]}`</li>
-    //             //<li>`${ingredient[2]}`</li>
-    //           </ul>
-    //           <h4>Directions</h4>
-    //           <ol id='directions-list'> //for loop for directions
-    //             //<li>`${direction[0]}`</li>
-    //             //<li>`${direction[1]}`</li>
-    //             //<li>`${direction[2]}`</li>
-    //           </ol>
-    //         </div>
-    //       </div>
-    //     </li>
-    // `)
+    cardList.append(`
+    <li class=cards card-${[i] + 1}>
+          <div id='drink-card'>
+            //<h3>${characterName}'s Drink</h3>
+            //<img src=${characterImg}>
+            <div id="card-content">
+              <h4>${data.drinks[i].strDrink}</h4>
+              <img src=${data.drinks[i].strDrinkThumb}>
+              <h5>ingredients</h5>
+              <ul id='ingredient-list'> // for loop for ingredients directions data.drinks[i].strIngredient[j]
+                <li>${data.drinks[i].strIngredient[j]}</li>
+                <li>${data.drinks[i].strIngredient[j]}</li>
+                <li>${data.drinks[i].strIngredient[j]}</li>
+              </ul>
+              <h4>Directions</h4>
+              <ol id='directions-list'> //for loop for data.drinks[i].strInstructions[k]
+                //<li>${data.drinks[i].strInstructions[k]}</li>
+                //<li>${data.drinks[i].strInstructions[k]}</li>
+                //<li>${data.drinks[i].strInstructions[k]}</li>
+              </ol>
+            </div>
+          </div>
+        </li>
+    `)
   })
   showCocktail();
 };
@@ -262,11 +263,7 @@ function showCocktail(data) {
 };
 
 // class toggle for opening card set
-$(document).ready(() =>{
-$('#card-list').on('click', () =>{
-  $(this).toggleClass('transition')
-})
-});
+
 
 
 // DATA from the function getCocktailIngredients:
