@@ -1,5 +1,5 @@
 // array of base liquor choices, if empty set up array
-var baseLiqourChoices = JSON.parse(localStorage.getItem("base-liquor-choices")) || [];
+var baseLiquorChoices = JSON.parse(localStorage.getItem("base-liquor-choices")) || [];
 
 // function to save base liqour input to local storage
 function saveBaseLiquor() {
@@ -48,37 +48,41 @@ submitBtnEl.addEventListener('click', function (event) {
   // clear first ingredient input field after submission
   firstIngredient.value = '';
 
-  if (!ingredientChoices.includes(SecondIngredient)) {
-    ingredientChoices.push(SecondIngredient);
-    saveIngredient();
+  // make sure first and second ingredient choices aren't the same
+  if (!ingredientChoices.includes(secondIngredient)) {
+    ingredientChoices.push(firstIngredient);
+    saveIngredients();
   };
 
 
   // second ingredient
   var secondIngredientEl = document.getElementById('first-ingredient-input');
-  var secondIngredientEl = secondIngredientEl.value.trim();
-  if (!SecondIngredient) {
+  var secondIngredient = secondIngredientEl.value.trim();
+  if (!secondIngredient) {
     return;
   }
   // clear second ingredient input field after submission
-  SecondIngredient.value = '';
+  secondIngredient.value = '';
 
-  if (!ingredientChoices.includes(SecondIngredient)) {
-    ingredientChoices.push(SecondIngredient);
+  // make sure first and second ingredient choices aren't the same
+  if (!ingredientChoices.includes(firstIngredient)) {
+    ingredientChoices.push(secondIngredient);
     saveIngredients();
   };
 
-  // function to get cocktail based on user input choices
-  getCocktail(cocktail);
+  // function to get cocktail ID based on user input choices
+  getCocktailID(data);
 });
 
-// function to get cocktail
-function getCocktail(cocktail) {
+// function to get cocktail ID and ingredients and directions
+function getCocktailID(data) {
 
   if (data.length === 0) {
     // !we need to use a modal here, not an alert
     alert('wubba-lubba-dub-dub!  No results, try again!');
   }
+
+  // get proper ID
   if (baseLiquor && !firstIngredient && !secondIngredient) {
     getCocktailBaseOnlyID(baseLiquor);
 
@@ -92,16 +96,17 @@ function getCocktail(cocktail) {
     getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient);
   }
 
-  getCocktailIngredients(data.drinks[0].idDrink);
+  // get list of ingredients and directions etc.
+  getCocktailIngredients(data.drinks[i].idDrink);
 
 };
 
 
-var cocktailNameEl = document.getElementById('cocktail-name')
-cocktailNameEl.textContent = cocktail;
+// var drinkNameEl = document.getElementById('drink-name')
+// drinkNameEl.textContent = drinkName;
 
 
-// function to get the cocktail ID number, depending on user input(s)
+// functions to get the cocktail ID number, depending on user input(s)
 APIkey = 1;
 function getCocktailBaseOnlyID(baseLiquor) {
   cocktailQueryUrl = `www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}`;
@@ -180,12 +185,10 @@ function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient)
     })
 };
 
-
-
-function showCocktailTwoIngredients() {baseLiquor, firstIngredient, secondIngredient};
-
-function getCocktailIngredients(cocktailNumber) {
-  ingredientQueryUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailNumber}`;
+// function for getting rest of ingredients and directions depending on cocktail ID
+var cocktailID = data.drinks[i].idDrink
+function getCocktailIngredients(cocktailID) {
+  ingredientQueryUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailID}`;
   fetch(ingredientQueryUrl, {
     method: 'GET',
   })
@@ -276,9 +279,6 @@ $('#card-list').on('click', () =>{
     // location MEASUREMENT: data.drinks[i].strMeasure1;   the last number goes 1-15 depending on how many measurements (one measure per ingredient).
 
 // DATA from the functions for IDs
-    // location DRINK NAME: data.drinks[i].strDrink;
-    // location of DRINK PIC: data.drinks[i].strDrinkThumb;
     // location ID: data.drinks[i].idDrink;
 
-    // yes, both functions pull drink name and pic data
 
