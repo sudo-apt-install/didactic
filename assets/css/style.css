@@ -101,14 +101,20 @@ header {
 
   /* Form Styling */
 
-  form {
-    align-items: center;
-    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+  Form {
+    align-items: center; 
     color: var(--rick-blue);
     border: 3px solid var(--acid-green);
     background-color: var(--rick-blue);
     border-radius: 10px;
-    box-shadow: 1px 2px 2px 0 #aaa;
-    position: relative;
+  }
+    
+
+    .ourFormText {
+        color: var(--rick-blue);
+        font-size:x-large;
+        
+    }
+    
    
 
