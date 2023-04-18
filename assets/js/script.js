@@ -77,7 +77,7 @@ function getCocktail(cocktail) {
 
   if (data.length === 0) {
     // !we need to use a modal here, not an alert
-    alert('lubba-dubba-dub-dub!  No results, try again!');
+    alert('wubba-lubba-dub-dub!  No results, try again!');
   }
   if (baseLiquor && !firstIngredient && !secondIngredient) {
     getCocktailBaseOnlyID(baseLiquor);
@@ -183,7 +183,7 @@ function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient)
 
 
 function showCocktailTwoIngredients() {baseLiquor, firstIngredient, secondIngredient};
-=======
+
 function getCocktailIngredients(cocktailNumber) {
   ingredientQueryUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailNumber}`;
   fetch(ingredientQueryUrl, {
@@ -226,7 +226,7 @@ function displayCards(){
 
 
     // cardList.append(`
-    // <li class=`cards card-${[i]}`>
+    // <li class=`cards card-${[i] + 1}`>
     //       <div id='drink-card'>
     //         <h3>`${characterName}`'s Drink</h3>
     //         <img src=`${characterImg}`>
@@ -258,10 +258,12 @@ function showCocktail(data) {
 
 };
 
-// TODO function to SHOW the cocktail data to the user, populate the cocktail cards:
-
-
-function showCocktail(data) {};
+// class toggle for opening card set
+$(document).ready(() =>{
+$('#card-list').on('click', () =>{
+  $(this).toggleClass('transition')
+})
+});
 
 
 // DATA from the function getCocktailIngredients:
