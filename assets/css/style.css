@@ -18,9 +18,9 @@
 .grid-container-main {
     padding-right: 0.625rem;
     padding-left: 0.625rem;
-    max-width: 75rem;
+    max-width: 100%;
     margin-left: auto;
-    margin-right: auto; 
+    margin-right: auto;
 }
 
 /* Class Selectors */
@@ -89,6 +89,7 @@
 /* Header Nav Styling */
 
 header {
+    margin-bottom: 1rem;
     align-items: center;
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
     color: var(--rick-blue);
@@ -108,13 +109,15 @@ header {
   /* Form Styling */
 
   form {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
     align-items: center;
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
     color: var(--rick-blue);
     border: 3px solid var(--acid-green);
-    background-color: var(--rick-blue);
+    /* background-color: var(--rick-blue); */
     border-radius: 10px;
     box-shadow: 1px 2px 2px 0 #aaa;
     position: relative;
-   
+  }
 
