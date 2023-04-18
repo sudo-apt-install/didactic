@@ -86,29 +86,37 @@ header {
     align-items: center;
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
     color: var(--rick-blue);
-    border: 3px solid var(--acid-green);
     background-color: var(--space-black);
-    border-radius: 10px;
-    box-shadow: 1px 2px 2px 0 #aaa;
-    position: relative;
-    overflow: hidden;
-    list-style-type: none;
-    transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding-top: 20px;
+margin: 0;
 }
   
-  
+  h1 {
+    margin: 0;
+  }
   
 
   /* Form Styling */
 
-  form {
-    align-items: center;
-    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+  Form {
+    align-items: center; 
     color: var(--rick-blue);
-    border: 3px solid var(--acid-green);
-    background-color: var(--rick-blue);
-    border-radius: 10px;
-    box-shadow: 1px 2px 2px 0 #aaa;
-    position: relative;
+    padding-bottom: 10px;
+    margin: 0;
+  }
+    
+
+    .ourFormText {
+        color: var(--acid-green);
+        font-size:x-large;
+        
+    }
+    
+    .ourButton {
+        background-color: var(--rick-blue);
+        color: var(--space-black);
+        border-radius: 15px;
+        
+    }
    
 
