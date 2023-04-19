@@ -148,11 +148,13 @@ fetch(rickandmortyURL, {
 
 $(document).ready(function () {
 
-  $('.cards').on('dblclick', () => {
+  $('.card-split').on('click', () => {
     $('.cards').toggleClass('transition')
   });
-  $('.cards').on('click', () => {
-    $('.cards').toggleClass('expand')
-  });
+ $('.cards').on("mouseenter mouseleave", function(){
+  $(this).toggleClass('expand')
+ })
+
+
 });
 
