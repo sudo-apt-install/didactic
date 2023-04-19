@@ -292,6 +292,12 @@ function getDetails(cocktailID) {
 
 
 // class toggle for opening card set
+$(document).ready(function() {
+
+$('.cards').on('click', () =>{
+  $('.cards').toggleClass('transition',1000)
+});
+});
 
 
 
