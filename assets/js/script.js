@@ -8,28 +8,28 @@ baseLiquorEl.addEventListener("change", () => {
 });
 
 // array of First ingredient choices, if empty set up array
-var firstIngredientChoices =
-  JSON.parse(localStorage.getItem("first-ingredients-choices")) || [];
-var firstIngredientEl = document.getElementById("first-ingredient-input");
-firstIngredientEl.addEventListener('input', () => {
-  firstIngredient = firstIngredientEl.value.trim();
-});
+// var firstIngredientChoices =
+//   JSON.parse(localStorage.getItem("first-ingredients-choices")) || [];
+// var firstIngredientEl = document.getElementById("first-ingredient-input");
+// firstIngredientEl.addEventListener('input', () => {
+//   firstIngredient = firstIngredientEl.value.trim();
+// });
 
 // array of Second ingredient choices, if empty set up array
-var secondIngredientChoices =
-  JSON.parse(localStorage.getItem("second-ingredients-choices")) || [];
-var secondIngredientEl = document.getElementById("second-ingredient-input");
+// var secondIngredientChoices =
+//   JSON.parse(localStorage.getItem("second-ingredients-choices")) || [];
+// var secondIngredientEl = document.getElementById("second-ingredient-input");
 
-var secondIngredient = secondIngredientEl.value.trim();
+// var secondIngredient = secondIngredientEl.value.trim();
 
-// function to save base liquor input to local storage
-function saveBaseLiquor() {
-  // clear base liquor input field after submission
-  baseLiquorEl.value = "";
-  console.log(baseLiquor);
-  baseLiquorChoices.push(baseLiquor);
-  localStorage.setItem("base-liquor", JSON.stringify(baseLiquorChoices));
-}
+// // function to save base liquor input to local storage
+// function saveBaseLiquor() {
+//   // clear base liquor input field after submission
+//   baseLiquorEl.value = "";
+//   console.log(baseLiquor);
+//   baseLiquorChoices.push(baseLiquor);
+//   localStorage.setItem("base-liquor", JSON.stringify(baseLiquorChoices));
+// }
 
 // function to save FIRST ingredients input to local storage
 function saveFirstIngredients() {
@@ -274,64 +274,64 @@ fetch(rickandmortyURL, {
 // // TODO function to SHOW the cocktail to the user, populate the cocktail cards:
 
 // // TODO card display functions
-// function displayCards() {
+function displayCards() {
 
-//   // loop through the 5 options 
-//   var drinkArray; // = (pulled data for character and drink)
-//   var mortyArray;
-//   $.each(drinkArray, (i) => {
-//     var cardList = $('#card-list');
-//     var characterImg; // = cardData[i].image;
-//     var characterName; // = cardData[i].name;
-//     var drinkImg; // = cardData[i].image;
-//     var drinkName; // = cardData[i].name;
-
-
-//     cardList.append(`
-//     <li class=cards card-${[i] + 1}>
-//           <div id='drink-card'>
-//             //<h3>${characterName}'s Drink</h3>
-//             //<img src=${characterImg}>
-//             <div id="card-content">
-//               <h4>${data.drinks[i].strDrink}</h4>
-//               <img src=${data.drinks[i].strDrinkThumb}>
-//               <h5>ingredients</h5>
-//               <ul id='ingredient-list'> // for loop for ingredients directions data.drinks[i].strIngredient[j]
-//                 <li>${data.drinks[i].strIngredient[j]}</li>
-//                 <li>${data.drinks[i].strIngredient[j]}</li>
-//                 <li>${data.drinks[i].strIngredient[j]}</li>
-//               </ul>
-//               <h4>Directions</h4>
-//               <ol id='directions-list'> //for loop for data.drinks[i].strInstructions[k]
-//                 //<li>${data.drinks[i].strInstructions[k]}</li>
-//                 //<li>${data.drinks[i].strInstructions[k]}</li>
-//                 //<li>${data.drinks[i].strInstructions[k]}</li>
-//               </ol>
-//             </div>
-//           </div>
-//         </li>
-//     `)
-//   })
-//   showCocktail();
-// };
+  // loop through the 5 options 
+  var drinkArray; // = (pulled data for character and drink)
+  var mortyArray;
+  $.each(drinkArray, (i) => {
+    var cardList = $('#card-list');
+    var characterImg; // = cardData[i].image;
+    var characterName; // = cardData[i].name;
+    var drinkImg; // = cardData[i].image;
+    var drinkName; // = cardData[i].name;
 
 
-// function showCocktail(data) {
+    cardList.append(`
+    <li class=cards card-${[i] + 1}>
+          <div id='drink-card'>
+            //<h3>${characterName}'s Drink</h3>
+            //<img src=${characterImg}>
+            <div id="card-content">
+              <h4>${data.drinks[i].strDrink}</h4>
+              <img src=${data.drinks[i].strDrinkThumb}>
+              <h5>ingredients</h5>
+              <ul id='ingredient-list'> // for loop for ingredients directions data.drinks[i].strIngredient[j]
+                <li>${data.drinks[i].strIngredient[j]}</li>
+                <li>${data.drinks[i].strIngredient[j]}</li>
+                <li>${data.drinks[i].strIngredient[j]}</li>
+              </ul>
+              <h4>Directions</h4>
+              <ol id='directions-list'> //for loop for data.drinks[i].strInstructions[k]
+                //<li>${data.drinks[i].strInstructions[k]}</li>
+                //<li>${data.drinks[i].strInstructions[k]}</li>
+                //<li>${data.drinks[i].strInstructions[k]}</li>
+              </ol>
+            </div>
+          </div>
+        </li>
+    `)
+  })
+  showCocktail();
+};
 
-// };
+
+function showCocktail(data) {
+
+};
 
 
 
 // class toggle for opening card set
 $(document).ready(function() {
 
-$('.cards').on('dblclick', () =>{
-  $('.cards').toggleClass('transition')
-});
-$('.cards').on('click', () =>{
-  $('.cards').toggleClass('expand')
-});
-});
+  $('.cards').on('dblclick', () =>{
+    $('.cards').toggleClass('transition')
+  });
+  $('.cards').on('click', () =>{
+    $('.cards').toggleClass('expand')
+  });
+  });
 
 
 

@@ -40,7 +40,7 @@
 
 <!--Form for data request from user-->
 
-<form>
+<form id="form1">
   <div class="grid-container ourForm">
     <div class="grid-x grid-padding-x">
 
@@ -49,7 +49,7 @@
 
         <label class="ourFormText" for="base-liqour-input">Select your base liquor 
 
-          <select id="drop-down" placeholder="Liquor Selection" name="base-liquor-input" required>
+          <select form="form1" id="drop-down" placeholder="Liquor Selection" name="base-liquor-input" required>
             <option selected disabled></option>
             <option value="brandy">Brandy</option>
             <option value="gin">Gin</option>
@@ -62,18 +62,18 @@
       </div>
 
           <!--First Ingredient Field-->
-          <div class="medium-6 cell">
+          <!-- <div class="medium-6 cell">
             <label class="ourFormText" for="first-ingredient-input">Type first Ingredient
               <input id="first-ingredient-input" type="text" placeholder="ex. Sprite" >
             </label>
-          </div>
+          </div> -->
 
           <!--Second Ingredient Field-->
-          <div class="medium-6 cell">
+          <!-- <div class="medium-6 cell">
             <label class="ourFormText" for="second-ingredient-input" >Type Second Ingredient
               <input id="second-ingredient-input" type="text" placeholder="ex. Orange Juice">
             </label>
-          </div>
+          </div> -->
         
           <!--Submit Button-->
           <button type="submit" id="submitBtn" class="button large expanded ourButton">Get Schwifty</button> 
@@ -88,7 +88,7 @@
           <li class="cards card-1"><!-- card list items-->
             <div id="card-content"><!--card content -->
               <h3> Character's Drink</h3>
-              <img src="https://via.placeholder.com/200x200">
+              <img id="first-drink-image" src="https://via.placeholder.com/200x200">
               <div id="">
                 <h4>Cocktail Name</h4>
                 <img src="https://via.placeholder.com/50x50">
