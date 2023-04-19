@@ -151,7 +151,7 @@ $(document).ready(function () {
   $('.card-split').on('click', () => {
     $('.cards').toggleClass('transition')
   });
- $('.cards').on("mouseenter mouseleave", function(){
+ $('.cards').on(" touchstart touchend mouseenter mouseleave", function(){
   $(this).toggleClass('expand')
  })
 
