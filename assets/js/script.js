@@ -11,12 +11,15 @@ baseLiquorEl.addEventListener("change", () => {
 var firstIngredientChoices =
   JSON.parse(localStorage.getItem("first-ingredients-choices")) || [];
 var firstIngredientEl = document.getElementById("first-ingredient-input");
-var firstIngredient = firstIngredientEl.value.trim();
+firstIngredientEl.addEventListener('input', () => {
+  firstIngredient = firstIngredientEl.value.trim();
+});
 
 // array of Second ingredient choices, if empty set up array
 var secondIngredientChoices =
   JSON.parse(localStorage.getItem("second-ingredients-choices")) || [];
 var secondIngredientEl = document.getElementById("second-ingredient-input");
+
 var secondIngredient = secondIngredientEl.value.trim();
 
 // function to save base liquor input to local storage
