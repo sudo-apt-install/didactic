@@ -1,17 +1,48 @@
 // array of base liquor choices, if empty set up array
-var baseLiquorChoices = [JSON.parse(localStorage.getItem("base-liquor-choices"))] || [];
+var baseLiquorChoices = JSON.parse(localStorage.getItem("base-liquor-choices")) || [];
+var baseLiquorEl = document.getElementById('drop-down');
+var baseLiquor = baseLiquorEl.options[baseLiquorEl.selectedIndex].value;
+// var baseLiquor = baseLiquorEl.selectedOptions[0].value;
+// var baseLiquor = baseLiquorEl.value;
+// var baseLiquor = baseLiquorEl.options[baseLiquorEl.selectedIndex].text;
 
-// function to save base liqour input to local storage
-function saveBaseLiquor(liquor) {
-  localStorage.setItem("base-liquor-choices", JSON.stringify(liquor));
+
+// array of First ingredient choices, if empty set up array
+var firstIngredientChoices = JSON.parse(localStorage.getItem("first-ingredients-choices")) || [];
+var firstIngredientEl = document.getElementById('first-ingredient-input');
+var firstIngredient = firstIngredientEl.value.trim();
+
+// array of Second ingredient choices, if empty set up array
+var secondIngredientChoices = JSON.parse(localStorage.getItem("second-ingredients-choices")) || [];
+var secondIngredientEl = document.getElementById('second-ingredient-input');
+var secondIngredient = secondIngredientEl.value.trim();
+
+
+// function to save base liquor input to local storage
+function saveBaseLiquor() {
+  // clear base liquor input field after submission
+  baseLiquorEl.value = '';
+  console.log(baseLiquor);
+  baseLiquorChoices.push(baseLiquor);
+  localStorage.setItem("base-liquor-choices", JSON.stringify(baseLiquorChoices));
 };
 
-// array of all ingredient choices, if empty set up array
-var ingredientChoices = JSON.parse(localStorage.getItem("all-ingredients-choices")) || [];
+// function to save FIRST ingredients input to local storage
+function saveFirstIngredients() {
+  // clear first ingredient input field after submission
+  firstIngredientEl.value = '';
+  console.log(firstIngredient);
+  firstIngredientChoices.push(firstIngredient);
+  localStorage.setItem("first-ingredients-choices", JSON.stringify(firstIngredientChoices));
+};
 
-// function to save all ingredients input to local storage
-function saveIngredients() {
-  localStorage.setItem("all-ingredients-choices", JSON.stringify('all-ingredients'));
+// function to save SECOND ingredients input to local storage
+function saveSecondIngredients() {
+  // clear second ingredient input field after submission
+  secondIngredientEl.value = '';
+  console.log(secondIngredient);
+  secondIngredientChoices.push(secondIngredient);
+  localStorage.setItem("second-ingredients-choices", JSON.stringify(secondIngredientChoices));
 };
 
 
@@ -19,103 +50,41 @@ function saveIngredients() {
 var submitBtnEl = document.getElementById('submitBtn');
 submitBtnEl.addEventListener('click', function (event) {
   event.preventDefault();
-
-
-  // base liquor
-  var baseLiquorEl = document.getElementById('drop-down');
-  var baseLiquor = baseLiquorEl.options[baseLiquorEl.selectedIndex].value;
-  if (!baseLiquor) {
-
-    // !we need to use a modal here, not an alert
-    alert('you gotta choose a base liquor');
-    return;
-  }
-  // clear base liquor input field after submission
-  baseLiquorEl.value = '';
-
-  if (!baseLiquorChoices.includes(baseLiquor)) {
-    console.log(baseLiquor);
-    baseLiquorChoices.push(baseLiquor);
-    saveBaseLiquor(baseLiquor);
-  };
-
-
-  // first ingredient
-  var firstIngredientEl = document.getElementById('first-ingredient-input');
-  var firstIngredient = firstIngredientEl.textContent.trim();
-  if (!firstIngredient) {
-    return null;
-  }
-  // clear first ingredient input field after submission
-  firstIngredient.value = '';
-
-  // make sure first and second ingredient choices aren't the same
-  if (!ingredientChoices.includes(secondIngredient)) {
-    ingredientChoices.push(firstIngredient);
-    saveIngredients();
-  };
-
-
-  // second ingredient
-  var secondIngredientEl = document.getElementById('first-ingredient-input');
-  var secondIngredient = secondIngredientEl.value.trim();
-  if (!secondIngredient) {
-    return null;
-  }
-  // clear second ingredient input field after submission
-  secondIngredient.value = '';
-
-  // make sure first and second ingredient choices aren't the same
-  if (!ingredientChoices.includes(firstIngredient)) {
-    ingredientChoices.push(secondIngredient);
-    saveIngredients();
-  };
-
-  // function to get cocktail ID based on user input choices
-  getCocktailID(data);
-});
-
-// function to get cocktail ID and ingredients and directions
-function getCocktailID(data) {
-
-  if (data.length === 0) {
-    // !we need to use a modal here, not an alert
-    alert('wubba-lubba-dub-dub!  No results, try again!');
-  }
-
   // get proper ID
   if (baseLiquor && !firstIngredient && !secondIngredient) {
+    saveBaseLiquor(baseLiquor);
     getCocktailBaseOnlyID(baseLiquor);
 
   } else if (baseLiquor && firstIngredient && !secondIngredient) {
+    saveBaseLiquor(baseLiquor);
+    saveFirstIngredients(firstIngredient);
     getCocktailWithFirstIngrID(baseLiquor, firstIngredient);
 
   } else if (baseLiquor && !firstIngredient && secondIngredient) {
+    saveBaseLiquor(baseLiquor);
+    saveSecondIngredients(secondIngredient);
     getCocktailWithSecondIngrID(baseLiquor, secondIngredient);
 
   } else if (baseLiquor && firstIngredient && secondIngredient) {
+    saveBaseLiquor(baseLiquor);
+    saveFirstIngredients(firstIngredient);
+    saveSecondIngredients(secondIngredient);
     getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient);
+  } else {
+    // !we need to use a modal here, not an alert
+    alert('gimme some basic info, Morty!');
+    return;
   }
-
-  // get list of ingredients and directions etc.
-  getCocktailIngredients(data.drinks[i].idDrink);
-  console.log(data.drinks[i].idDrink);
-
-};
-
-
-// var drinkNameEl = document.getElementById('drink-name')
-// drinkNameEl.textContent = drinkName;
-
+});
 
 // functions to get the cocktail ID number, depending on user input(s)
 APIkey = 1;
 function getCocktailBaseOnlyID(baseLiquor) {
-  cocktailQueryUrl = `www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}`;
+  cocktailQueryUrl = `https://www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}`;
   fetch(cocktailQueryUrl, {
     method: 'GET',
-    credentials: 'same-origin',
-    redirect: 'follow',
+    // credentials: 'same-origin',
+    // redirect: 'follow',
   })
 
     .then(function (response) {
@@ -126,7 +95,14 @@ function getCocktailBaseOnlyID(baseLiquor) {
     })
     .then(function (data) {
       console.log(data);
+      if (data.length === 0) {
+        // !we need to use a modal here, not an alert
+        alert('wubba-lubba-dub-dub!  No results, try again!');
+      }
+
+      getDetails(data.drinks[0].idDrink)
     })
+
 };
 
 function getCocktailWithFirstIngrID(baseLiquor, firstIngredient) {
@@ -145,7 +121,13 @@ function getCocktailWithFirstIngrID(baseLiquor, firstIngredient) {
     })
     .then(function (data) {
       console.log(data);
+      if (data.length === 0) {
+        // !we need to use a modal here, not an alert
+        alert('wubba-lubba-dub-dub!  No results, try again!');
+      }
+      getDetails(data.drinks[0].idDrink)
     })
+
 };
 
 function getCocktailWithSecondIngrID(baseLiquor, secondIngredient) {
@@ -165,7 +147,14 @@ function getCocktailWithSecondIngrID(baseLiquor, secondIngredient) {
     })
     .then(function (data) {
       console.log(data);
+      if (data.length === 0) {
+        // !we need to use a modal here, not an alert
+        alert('wubba-lubba-dub-dub!  No results, try again!');
+      }
+      // need for loop for [i], not [0].
+      getDetails(data.drinks[0].idDrink)
     })
+
 };
 
 function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient) {
@@ -184,12 +173,17 @@ function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient)
     })
     .then(function (data) {
       console.log(data);
+      if (data.length === 0) {
+        // !we need to use a modal here, not an alert
+        alert('wubba-lubba-dub-dub!  No results, try again!');
+      }
+      getDetails(data.drinks[0].idDrink)
     })
+
 };
 
 // function for getting rest of ingredients and directions depending on cocktail ID
-var cocktailID = data.drinks[0].idDrink
-function getCocktailIngredients(cocktailID) {
+function getDetails(cocktailID) {
   ingredientQueryUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailID}`;
   fetch(ingredientQueryUrl, {
     method: 'GET',
@@ -203,17 +197,21 @@ function getCocktailIngredients(cocktailID) {
     })
     .then(function (data) {
       console.log(data);
+
+      displayCards(data);
     })
 
-  return drinkDetails = {
-    cocktailName: data.drinks[i].strDrink, 
-    cocktailImg: data.drinks[i].strDrinkThumb,
-    glassType: data.drinks[i].strGlass,
-    ingredients: data.drinks[i].strIngredient[j],
-    instructions: data.drinks[i].strInstructions,
-    measurements: [data.drinks[i].strMeasure[k]]
-  }
+  // return drinkDetails = {
+  //   cocktailName: data.drinks[0].strDrink,
+  //   cocktailImg: data.drinks[0].strDrinkThumb,
+  //   glassType: data.drinks[0].strGlass,
+  //   ingredients: data.drinks[0].strIngredient[1],
+  //   instructions: data.drinks[0].strInstructions,
+  //   measurements: [data.drinks[0].strMeasure[1]]
+
+  // }
 };
+
 // for loops for ingredients and measurement arrays
 // drinkDetails.ingredients.forEach(function(ingredients, j) {
 //   var ingredients = document.createElement('h3');
@@ -225,73 +223,66 @@ function getCocktailIngredients(cocktailID) {
 //   PARENT.appendChild(measurements);
 // })
 
-for (var j = 1; j < 16; j++) {
-  var ingredients = document.createElement('h3');
-  PARENT.appendChild(ingredients);
-  ingredients.textContent = [data.drinks[i].strIngredient[j]];
-};
+// for (var j = 1; j < 16; j++) {
+//   var ingredients = document.createElement('h3');
+//   PARENT.appendChild(ingredients);
+//   ingredients.textContent = [data.drinks[i].strIngredient[j]];
+// };
 
-for (var k = 1; k < 16; k++) {
-  var measurements = document.createElement('li');
-  // if (data.drinks[i].strMeasure[k] == null) {
-  //   return null;
-  // } else {
-  PARENT.appendChild(measurements);
-  measurements.textContent = [data.drinks[i].strMeasure[k]];
-  // }
-};
-
-/*
-Search by ingredient style query using "1" as the API key
-
-www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
-www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
-*/
+// for (var k = 1; k < 16; k++) {
+//   var measurements = document.createElement('li');
+//   // if (data.drinks[i].strMeasure[k] == null) {
+//   //   return null;
+//   // } else {
+//   PARENT.appendChild(measurements);
+//   measurements.textContent = [data.drinks[i].strMeasure[k]];
+//   // }
+// };
 
 
-// TODO function to SHOW the cocktail to the user, populate the cocktail cards:
+// // TODO function to SHOW the cocktail to the user, populate the cocktail cards:
 
-// TODO card display functions
-function displayCards(){
+// // TODO card display functions
+// function displayCards() {
 
-  // loop through the 5 options 
-  var drinkArray; // = (pulled data for character and drink)
-  var mortyArray; 
-  $.each(drinkArray, (i) =>{
-    var cardList = $('#card-list');
-    var characterImg; // = cardData[i].image;
-    var characterName; // = cardData[i].name;
-    var drinkImg; // = cardData[i].image;
-    var drinkName; // = cardData[i].name;
+//   // loop through the 5 options 
+//   var drinkArray; // = (pulled data for character and drink)
+//   var mortyArray;
+//   $.each(drinkArray, (i) => {
+//     var cardList = $('#card-list');
+//     var characterImg; // = cardData[i].image;
+//     var characterName; // = cardData[i].name;
+//     var drinkImg; // = cardData[i].image;
+//     var drinkName; // = cardData[i].name;
 
 
-    cardList.append(`
-    <li class=cards card-${[i] + 1}>
-          <div id='drink-card'>
-            //<h3>${characterName}'s Drink</h3>
-            //<img src=${characterImg}>
-            <div id="card-content">
-              <h4>${data.drinks[i].strDrink}</h4>
-              <img src=${data.drinks[i].strDrinkThumb}>
-              <h5>ingredients</h5>
-              <ul id='ingredient-list'> // for loop for ingredients directions data.drinks[i].strIngredient[j]
-                <li>${data.drinks[i].strIngredient[j]}</li>
-                <li>${data.drinks[i].strIngredient[j]}</li>
-                <li>${data.drinks[i].strIngredient[j]}</li>
-              </ul>
-              <h4>Directions</h4>
-              <ol id='directions-list'> //for loop for data.drinks[i].strInstructions[k]
-                //<li>${data.drinks[i].strInstructions[k]}</li>
-                //<li>${data.drinks[i].strInstructions[k]}</li>
-                //<li>${data.drinks[i].strInstructions[k]}</li>
-              </ol>
-            </div>
-          </div>
-        </li>
-    `)
-  })
-  showCocktail();
-};
+//     cardList.append(`
+//     <li class=cards card-${[i] + 1}>
+//           <div id='drink-card'>
+//             //<h3>${characterName}'s Drink</h3>
+//             //<img src=${characterImg}>
+//             <div id="card-content">
+//               <h4>${data.drinks[i].strDrink}</h4>
+//               <img src=${data.drinks[i].strDrinkThumb}>
+//               <h5>ingredients</h5>
+//               <ul id='ingredient-list'> // for loop for ingredients directions data.drinks[i].strIngredient[j]
+//                 <li>${data.drinks[i].strIngredient[j]}</li>
+//                 <li>${data.drinks[i].strIngredient[j]}</li>
+//                 <li>${data.drinks[i].strIngredient[j]}</li>
+//               </ul>
+//               <h4>Directions</h4>
+//               <ol id='directions-list'> //for loop for data.drinks[i].strInstructions[k]
+//                 //<li>${data.drinks[i].strInstructions[k]}</li>
+//                 //<li>${data.drinks[i].strInstructions[k]}</li>
+//                 //<li>${data.drinks[i].strInstructions[k]}</li>
+//               </ol>
+//             </div>
+//           </div>
+//         </li>
+//     `)
+//   })
+//   showCocktail();
+// };
 
 
 // function showCocktail(data) {
@@ -304,11 +295,11 @@ function displayCards(){
 
 
 
-// DATA from the function getCocktailIngredients:
+// DATA from the function getDetails:
   // this would show data for specific drink at index[i]
     // location DRINK NAME: data.drinks[i].strDrink;
     // location of DRINK PIC: data.drinks[i].strDrinkThumb;
-    // location GLASS TYPE: data.drinks[i].strGlass; 
+    // location GLASS TYPE: data.drinks[i].strGlass;
     // location INGREDIENTS: data.drinks[i].strIngredient1;  the last number goes 1-15 depending on how many ingredients
     // location INSTRUCTIONS: data.drinks[i].strInstructions;
     // location MEASUREMENT: data.drinks[i].strMeasure1;   the last number goes 1-15 depending on how many measurements (one measure per ingredient).
