@@ -238,3 +238,14 @@ fetch(rickandmortyURL, {
 
     console.log(rickandmortyImageURL);
   });
+
+  $(document).ready(function() {
+
+    $('.cards').on('dblclick', () =>{
+      $('.cards').toggleClass('transition')
+    });
+    $('.cards').on('click', () =>{
+      $('.cards').toggleClass('expand')
+    });
+    });
+    
