@@ -17,6 +17,29 @@
 /* Element selectors */
 
 
+/* Header Nav Styling */
+header {
+    align-items: center;
+    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+    color: var(--rick-blue);
+    background-color: var(--space-black);
+    padding-top: 20px;
+margin: 0;
+}
+  
+  h1 {
+    margin: 0;
+  }
+  
+
+  /* Form Styling */
+  Form {
+    align-items: center; 
+    color: var(--rick-blue);
+    padding-bottom: 10px;
+    margin: 0;
+  }
+
 /* Class Selectors */
 .cards {
     align-items: center;
@@ -75,48 +98,34 @@
 
 }
 
-/* Media Queries */
-
-
-
-
-/* Header Nav Styling */
-
-header {
-    align-items: center;
-    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
-    color: var(--rick-blue);
-    background-color: var(--space-black);
-    padding-top: 20px;
-margin: 0;
+/* our form button styling */
+.ourFormText {
+    color: var(--acid-green);
+    font-size:x-large;
+    
 }
-  
-  h1 {
-    margin: 0;
-  }
-  
 
-  /* Form Styling */
-
-  Form {
-    align-items: center; 
-    color: var(--rick-blue);
-    padding-bottom: 10px;
-    margin: 0;
-  }
+.ourButton {
+    background-color: var(--rick-blue);
+    color: var(--space-black);
+    border-radius: 15px;
     
+}
 
-    .ourFormText {
-        color: var(--acid-green);
-        font-size:x-large;
-        
-    }
-    
-    .ourButton {
-        background-color: var(--rick-blue);
-        color: var(--space-black);
-        border-radius: 15px;
-        
-    }
-   
+.ourButton:hover {
+background-color: var(--acid-green);
+color: var(--space-black);
+}
+
+.ourButton:active {
+    background-color: var(--pinky);
+}
+.ourButton:focus {
+    background-color: var(--morty-yellow);
+    color: var(--space-black);
+}
+
+
+
+/* Media Queries */
 
