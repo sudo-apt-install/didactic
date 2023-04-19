@@ -175,7 +175,7 @@ function getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient)
       console.log(data);
       if (data.length === 0) {
         // !we need to use a modal here, not an alert
-        alert('wubba-lubba-dub-dub!  No results, try again!');
+        alert('Wubba-lubba-dub-dub!  No results, try again!');
       }
       getDetails(data.drinks[0].idDrink)
     })
