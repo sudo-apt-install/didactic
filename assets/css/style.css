@@ -12,17 +12,26 @@
 }
 
 * {
-    background-color: var(--space-black);
+    /* background-color: var(--space-black); */
 }
 /* Element selectors */
-
+body {
+    background-image: url(../Images/rnm.jpg);
+    margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+  background-attachment: fixed;
+  background-position: center;
+}
 
 /* Header Nav Styling */
 header {
     align-items: center;
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
     color: var(--rick-blue);
-    background-color: var(--space-black);
+    /* background-color: var(--space-black); */
     padding-top: 20px;
 margin: 0;
 }
@@ -42,7 +51,7 @@ margin: 0;
 
 /* Class Selectors */
 .cards {
-    align-items: center;
+    
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
     margin: 0 auto 20px;
     color: var(--rick-blue);
@@ -50,17 +59,22 @@ margin: 0;
     background-color: var(--space-black);
     height: 25rem;
     width: 17rem;
+    left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
     border-radius: 10px;
     box-shadow: 1px 2px 2px 0 #aaa;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     list-style-type: none;
     transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
     cursor: pointer;
+    transition: all .7s ease;
 }
 
 .transition {
-    position: absolute;
+    position: relative;
     transform: rotate(0deg);
 }
 
@@ -100,8 +114,10 @@ margin: 0;
 
 /* our form button styling */
 .ourFormText {
-    color: var(--acid-green);
+    color: var(--rick-blue);
+    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
     font-size:x-large;
+    font-weight: bolder;
     
 }
 
@@ -109,12 +125,12 @@ margin: 0;
     background-color: var(--rick-blue);
     color: var(--space-black);
     border-radius: 15px;
-    
 }
 
 .ourButton:hover {
 background-color: var(--acid-green);
 color: var(--space-black);
+
 }
 
 .ourButton:active {
