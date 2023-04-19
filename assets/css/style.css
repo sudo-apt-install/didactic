@@ -11,36 +11,89 @@
     text-align: center;
 }
 
-* {
+/* * {
     background-color: var(--space-black);
-}
+} */
 /* Element selectors */
 
 
 /* Header Nav Styling */
 header {
+    width: 100%;
     align-items: center;
-    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
-    color: var(--rick-blue);
     background-color: var(--space-black);
     padding-top: 20px;
-margin: 0;
+    margin: 0;
 }
   
-  h1 {
-    margin: 0;
-  }
-  
+h1 {
+margin: 0;
+color: var(--rick-blue);
+text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+}
 
-  /* Form Styling */
-  Form {
-    align-items: center; 
-    color: var(--rick-blue);
-    padding-bottom: 10px;
-    margin: 0;
-  }
+
+/* Form Styling */
+form {
+align-items: center; 
+color: var(--rick-blue);
+}
+
+form button {
+    width: 50px;
+    font-weight: bold;
+}
 
 /* Class Selectors */
+
+
+.header-image img {
+    margin-bottom: 1rem;
+    /* rounds image corners */
+    border-radius: 15px;
+}
+
+/* our form button styling */
+.ourForm {
+    margin: 1rem 0 1rem 0;
+    padding: 0.75rem;
+    width: 50rem;
+    border-radius: 15px;
+    background-color: var(--pinky);
+}
+
+.ourFormText {
+    color: var(--acid-green);
+    font-size:x-large;
+}
+
+/* form input styling */
+.ourFormText input {
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px 3px #aaa inset;
+}
+
+.ourButton {
+    width: 20px;
+    background-color: var(--rick-blue);
+    color: var(--space-black);
+    border-radius: 15px;
+    
+}
+
+.ourButton:hover {
+background-color: var(--acid-green);
+color: var(--space-black);
+}
+
+.ourButton:active {
+    background-color: var(--pinky);
+}
+.ourButton:focus {
+    background-color: var(--morty-yellow);
+    color: var(--space-black);
+}
+
 .cards {
     align-items: center;
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
@@ -89,40 +142,36 @@ margin: 0;
     z-index: 2;
     transform: rotateZ(5deg);
 }
+
 /* ID Selectors */
+
+#main-container {
+    width: 100%;
+    background-color: var(--space-black);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#drop-down {
+    border-radius: 10px;
+    /* adds shadow effect to the input area of the form */
+    box-shadow: -2px 2px 15px 1px #8b8b8b inset;
+}
+
+#card-container {
+    display: flex;
+    flex-direction: row;
+}
+
 #card-content{
 
 }
 
 #card-list{
 
-}
-
-/* our form button styling */
-.ourFormText {
-    color: var(--acid-green);
-    font-size:x-large;
-    
-}
-
-.ourButton {
-    background-color: var(--rick-blue);
-    color: var(--space-black);
-    border-radius: 15px;
-    
-}
-
-.ourButton:hover {
-background-color: var(--acid-green);
-color: var(--space-black);
-}
-
-.ourButton:active {
-    background-color: var(--pinky);
-}
-.ourButton:focus {
-    background-color: var(--morty-yellow);
-    color: var(--space-black);
 }
 
 
