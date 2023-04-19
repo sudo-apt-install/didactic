@@ -51,7 +51,7 @@ margin: 0;
 
 /* Class Selectors */
 .cards {
-    
+    display: inline-block;
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
     margin: 0 auto 20px;
     color: var(--rick-blue);
@@ -70,7 +70,11 @@ margin: 0;
     list-style-type: none;
     transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
     cursor: pointer;
-    transition: all .7s ease;
+    transition: all 1s ease;
+}
+.expand {
+    height:fit-content;
+    width: fit-content;
 }
 
 .transition {

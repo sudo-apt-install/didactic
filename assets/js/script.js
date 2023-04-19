@@ -322,8 +322,11 @@ fetch(rickandmortyURL, {
 // class toggle for opening card set
 $(document).ready(function() {
 
+$('.cards').on('dblclick', () =>{
+  $('.cards').toggleClass('transition')
+});
 $('.cards').on('click', () =>{
-  $('.cards').toggleClass('transition',1000)
+  $('.cards').toggleClass('expand')
 });
 });
 
