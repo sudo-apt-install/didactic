@@ -18,7 +18,8 @@
 
 /* Element selectors */
 body {
-    background-image: url(../Images/rnm.jpg);
+    background-image: url(../Images/stars.jpg);
+
     margin: 0;
   padding: 0;
   background-repeat: no-repeat;
@@ -32,6 +33,8 @@ body {
 header {
     width: 100%;
     align-items: center;
+    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+    color: var(--rick-blue);
     background-color: var(--space-black);
     padding-top: 20px;
     margin: 0;
@@ -44,10 +47,12 @@ text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1p
 }
 
 
+
 /* Form Styling */
 form {
 align-items: center; 
 color: var(--rick-blue);
+background-color: var(--space-black);
 }
 
 form button {
@@ -164,6 +169,7 @@ color: var(--space-black);
 }
 
 /* ID Selectors */
+
 
 #main-container {
     width: 100%;
