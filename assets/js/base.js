@@ -103,6 +103,48 @@ fetch(rickandmortyURL, {
     console.log(rickandmortyImageURL);
   });
 
+  // TODO format cards 
+  function displayCards() {
+
+    // loop through the 5 options 
+    var drinkArray; // = (pulled data for character and drink)
+    var mortyArray;
+    $.each(drinkArray, (i) => {
+      var cardList = $('#card-list');
+      // var characterImg; // = cardData[i].image;
+      // var characterName; // = cardData[i].name;
+      // var drinkImg; // = cardData[i].image;
+      // var drinkName = cardData[i].name;
+  
+  
+      cardList.append(`
+      <li class=cards card-${[i] + 1}>
+            <div id='drink-card'>
+              <h3>${characterName[i]}'s Drink</h3>
+              <img src=${rickandmortyImageURL[i]}>
+              <div id="card-content">
+                <h4>${data.drinks[i].strDrink}</h4>
+                <img src=${data.drinks[i].strDrinkThumb}>
+                <h5>ingredients</h5>
+                <ul id='ingredient-list'> // for loop for ingredients directions data.drinks[i].strIngredient[j]
+                  
+                </ul>
+                <h4>Directions</h4>
+                <ol id='directions-list'> //for loop for data.drinks[i].strInstructions[k]
+                  
+                </ol>
+              </div>
+            </div>
+          </li>
+      `)
+    })
+    // showCocktail();
+  };
+  
+  
+  // function showCocktail(data) {
+  
+  // };
 
 $(document).ready(function () {
 
