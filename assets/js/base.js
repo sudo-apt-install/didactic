@@ -18,7 +18,13 @@ var submitBtnEl = document.getElementById("submitBtn");
 submitBtnEl.addEventListener("click", function (event) {
   event.preventDefault();
   if (!baseLiquorEl.value) {
-    alert("gimme some basic info, Morty!");
+   $('#main-container').append(`<div class="callout alert" data-closable>
+  <h5>This is Important!</h5>
+  <p> Pick a base liquor Dawg!</p>
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>`)
   }
   saveBaseLiquor();
   getCocktailBaseOne(baseLiquor);
