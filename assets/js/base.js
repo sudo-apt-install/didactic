@@ -55,8 +55,8 @@ function getCocktailBaseOne(baseLiquor) {
         // !we need to use a modal here, not an alert
         alert("wubba-lubba-dub-dub!  No results, try again!");
       }
-
-      getDetailsOne(data.drinks[0].idDrink);
+      var randomNumber = Math.floor(Math.random() * data.drinks.length);
+      getDetailsOne(data.drinks[randomNumber].idDrink);
     });
 };
 
@@ -132,8 +132,8 @@ function getCocktailBaseTwo(baseLiquor) {
         // !we need to use a modal here, not an alert
         alert("wubba-lubba-dub-dub!  No results, try again!");
       }
-
-      getDetailsTwo(data.drinks[1].idDrink);
+      var randomNumber = Math.floor(Math.random() * data.drinks.length);
+      getDetailsTwo(data.drinks[randomNumber].idDrink);
     });
 };
 
@@ -204,8 +204,8 @@ function getCocktailBaseThree(baseLiquor) {
         // !we need to use a modal here, not an alert
         alert("wubba-lubba-dub-dub!  No results, try again!");
       }
-
-      getDetailsThree(data.drinks[1].idDrink);
+      var randomNumber = Math.floor(Math.random() * data.drinks.length);
+      getDetailsThree(data.drinks[randomNumber].idDrink);
     });
 };
 function getDetailsThree(cocktailID) {
@@ -277,8 +277,8 @@ function getCocktailBaseFour(baseLiquor) {
         alert("wubba-lubba-dub-dub!  No results, try again!");
       }
 
-
-      getDetailsFour(data.drinks[3].idDrink);
+      var randomNumber = Math.floor(Math.random() * data.drinks.length);
+      getDetailsFour(data.drinks[randomNumber].idDrink);
     });
 };
 function getDetailsFour(cocktailID) {
@@ -349,9 +349,8 @@ function getCocktailBaseFive(baseLiquor) {
         alert("wubba-lubba-dub-dub!  No results, try again!");
       }
 
-
-      getDetailsFive(data.drinks[4].idDrink);
-
+      var randomNumber = Math.floor(Math.random() * data.drinks.length);
+      getDetailsFive(data.drinks[randomNumber].idDrink);
     });
 };
 function getDetailsFive(cocktailID) {
