@@ -18,7 +18,7 @@ var submitBtnEl = document.getElementById("submitBtn");
 submitBtnEl.addEventListener("click", function (event) {
   event.preventDefault();
   if (!baseLiquorEl.value) {
-   $('#main-container').append(`<div class="callout alert" data-closable>
+   $('#form1').append(`<div class="callout alert" data-closable>
   <h5>This is Important!</h5>
   <p> Pick a base liquor Dawg!</p>
   <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
@@ -568,13 +568,7 @@ $(document).ready(function () {
   $(".card-split").on("dblclick", () => {
     $(".cards").toggleClass("transition");
   });
-
   $(".cards").on("click", function () {
     $(this).toggleClass("expand");
   });
-  
-  $(".cardz").on("click", function () {
-    $(this).toggleClass("expand");
-  });
-
 });
