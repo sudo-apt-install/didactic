@@ -422,7 +422,8 @@ function getCharOne() {
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
 
       document.getElementById('first-drink-image').src = `${rickandmortyImageURL}`
-
+      var charNameOneEl = document.getElementById('char-name-one');
+      charNameOneEl.innerHTML = data.name + "'s Drink";
       console.log(rickandmortyImageURL);
     });
     
@@ -445,7 +446,8 @@ function getCharTwo() {
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
 
       document.getElementById('second-drink-image').src = `${rickandmortyImageURL}`
-
+      var charNameTwoEl = document.getElementById('char-name-two');
+      charNameTwoEl.innerHTML = data.name + "'s Drink";
       console.log(rickandmortyImageURL);
     });
 
@@ -468,7 +470,8 @@ function getCharThree() {
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
 
       document.getElementById('third-drink-image').src = `${rickandmortyImageURL}`
-
+      var charNameThreeEl = document.getElementById('char-name-three');
+      charNameThreeEl.innerHTML = data.name + "'s Drink";
       console.log(rickandmortyImageURL);
     });
 
@@ -491,7 +494,9 @@ function getCharFour() {
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
 
       document.getElementById('fourth-drink-image').src = `${rickandmortyImageURL}`
-
+      document.getElementById('fifth-drink-image').src = `${rickandmortyImageURL}`
+      var charNameFourEl = document.getElementById('char-name-four');
+      charNameFourEl.innerHTML = data.name + "'s Drink";
       console.log(rickandmortyImageURL);
     });
 
@@ -514,7 +519,8 @@ function getCharFive() {
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
 
       document.getElementById('fifth-drink-image').src = `${rickandmortyImageURL}`
-
+      var charNameFiveEl = document.getElementById('char-name-five');
+      charNameFiveEl.innerHTML = data.name + "'s Drink";
       console.log(rickandmortyImageURL);
     });
 
