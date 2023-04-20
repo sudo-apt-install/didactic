@@ -566,4 +566,9 @@ $(document).ready(function () {
   $(".cards").on("click", function () {
     $(this).toggleClass("expand");
   });
+  
+  $(".cardz").on("click", function () {
+    $(this).toggleClass("expand");
+  });
+
 });

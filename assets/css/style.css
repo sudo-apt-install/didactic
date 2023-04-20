@@ -15,8 +15,8 @@
 
 /* Element selectors */
 body {
+    min-height: 1200px;
     background-image: url(../Images/stars.jpg);
-
     margin: 0;
   padding: 0;
   background-repeat: no-repeat;
@@ -45,13 +45,22 @@ color: var(--rick-blue);
 text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
 }
 
-
+footer {
+    position: fixed;
+    top:90%;
+    z-index: 0;
+}
+a{
+    color: var(--acid-green);
+    padding: 20px;
+}
 
 /* Form Styling */
 form {
+width:100%;
 align-items: center; 
 color: var(--rick-blue);
-background-color: var(--space-black);
+/* background-color: var(--space-black); */
 }
 
 form button {
@@ -72,9 +81,9 @@ form button {
 .ourForm {
     margin: 1rem 0 1rem 0;
     padding: 0.75rem;
-    width: 50rem;
+    /* width: 50rem; */
     border-radius: 15px;
-    background-color: var(--pinky);
+    /* background-color: var(--space-black); */
 }
 
 .ourFormText {
@@ -93,7 +102,6 @@ form button {
     background-color: var(--rick-blue);
     color: var(--space-black);
     border-radius: 15px;
-    
 }
 
 .ourButton:hover {
@@ -112,7 +120,7 @@ color: var(--space-black);
 .cards {
     display: none;
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
-    margin: 0 auto 20px;
+    margin: 0 auto 60px;
     color: var(--rick-blue);
     border: 3px solid var(--acid-green);
     background-color: var(--space-black);
@@ -125,6 +133,27 @@ color: var(--space-black);
     border-radius: 10px;
     box-shadow: 1px 2px 2px 0 #aaa;
     position: absolute;
+    overflow: hidden;
+    list-style-type: none;
+    transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+    transition: all .5s ease;
+}
+.cardz {
+    display: inline-block;
+    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+    margin: 0 auto 60px;
+    color: var(--rick-blue);
+    border: 3px solid var(--acid-green);
+    background-color: var(--space-black);
+    height: 25rem;
+    width: 17rem;
+    left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+    border-radius: 10px;
+    box-shadow: 1px 2px 2px 0 #aaa;
     overflow: hidden;
     list-style-type: none;
     transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -174,11 +203,13 @@ color: var(--space-black);
 }
 
 /* ID Selectors */
-
+#title {
+    margin-bottom:5%;
+}
 
 #main-container {
     width: 100%;
-    background-color: var(--space-black);
+    /* background-color: var(--space-black); */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -222,7 +253,7 @@ color: var(--space-black);
 
 
 /* Media Queries */
-@media (max-width: 800px) {
+@media (max-width: 1080px) {
     .cards{
         position: inherit;
     }

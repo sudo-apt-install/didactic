@@ -14,161 +14,159 @@
 </head>
 
 <body>
-  <div id="main-container">
-    <!--Header with Image-->
-    <header>
+    <div id="main-container">
+      <!--Header with Image-->
+      <header>
 
-      <div class="header-image">
-        <img src="./assets/Images/rickToast.jpeg" alt="header image">
+        <div class="header-image">
+          <img src="./assets/Images/rickToast.jpeg" alt="header image">
+        </div>
+
+        <h1 class=""> Morty's Book of Schwifty Ricktails</h1>
+
+      </header>
+
+
+      <!--Testing Reveal Modal -->
+
+      <!--<p><button class="button" data-open="exampleModal1">Click me for a modal</button></p>-->
+
+      <div class="reveal" id="exampleModal1" data-reveal>
+        <h1>Awesome. I Have It.</h1>
+        <p class="lead">Your couch. It is mine.</p>
+        <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
 
-      <h1 class=""> Morty's Book of Schwifty Ricktails</h1>
+      <!--Form for data request from user-->
 
-    </header>
+      
+        <div class="grid-container ourForm">
+          <form id="form1">
+          <div class="grid-x grid-padding-x">
 
+            <!--Base Liquor Field-->
+            <div class="medium-12 cell">
 
-    <!--Testing Reveal Modal -->
+              <label class="ourFormText" for="base-liqour-input">Select your base liquor
 
-    <!--<p><button class="button" data-open="exampleModal1">Click me for a modal</button></p>-->
+                <select form="form1" id="drop-down" placeholder="Liquor Selection" name="base-liquor-input" required>
+                  <option selected disabled></option>
+                  <option value="brandy">Brandy</option>
+                  <option value="gin">Gin</option>
+                  <option value="rum">Rum</option>
+                  <option value="tequila">Tequila</option>
+                  <option value="vodka">Vodka</option>
+                  <option value="whiskey">Whiskey</option>
+                </select>
+              </label>
+            </div>
 
-    <div class="reveal" id="exampleModal1" data-reveal>
-      <h1>Awesome. I Have It.</h1>
-      <p class="lead">Your couch. It is mine.</p>
-      <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-      <button class="close-button" data-close aria-label="Close modal" type="button">
-        <span aria-hidden="true">&times;</span>
-      </button>
+            <!--First Ingredient Field-->
+            <!-- <div class="medium-6 cell">
+              <label class="ourFormText" for="first-ingredient-input">Type first Ingredient
+                <input id="first-ingredient-input" type="text" placeholder="ex. Sprite" >
+              </label>
+            </div> -->
+
+            <!--Second Ingredient Field-->
+            <!-- <div class="medium-6 cell">
+              <label class="ourFormText" for="second-ingredient-input" >Type Second Ingredient
+                <input id="second-ingredient-input" type="text" placeholder="ex. Orange Juice">
+              </label>
+            </div> -->
+
+            <!--Submit Button-->
+            <button type="submit" id="submitBtn" class="button large expanded ourButton">Get Schwifty</button>
+          </form>
+        </div>
+
+          <!-- <div class="add-foundation-container"></div> -->
+          <!-- div for card area -->
+          <!-- contact links, secondary html page -->
+        <div class="container" id="card-container">
+          <ul class="card-split" id="card-list"><!--card list-->
+            <li class="cards card-1"><!-- card list items-->
+              <div id="card-content"><!--card content -->
+                <h3 id="first-character"></h3>
+                <img id="first-drink-image" src="https://via.placeholder.com/200x200">
+                <h4 id="drink-name-one"></h4>
+                <div id="drink-img-one"></div>
+                <h5>ingredients</h5>
+                <ul id="ingredients-one"></ul>
+                <h4>Directions</h4>
+                <h5 id="directions-one"></h5>
+            </li>
+
+            <li class="cards card-2"><!-- card list items-->
+              <div id="card-content"><!--card content -->
+                <h3 id="second-character"> Character's Drink</h3>
+                <img id="second-drink-image" src="https://via.placeholder.com/200x200">
+                <h4 id="drink-name-two"></h4>
+                <div id="drink-img-two"></div>
+                <h5>ingredients</h5>
+                <ul id="ingredients-two"></ul>
+                <h4>Directions</h4>
+                <h5 id="directions-two"></h5>
+              </div>
+            </li>
+
+            <li class="cards card-3"><!-- card list items-->
+              <div id="card-content"><!--card content -->
+                <h3 id="third-character"> Character's Drink</h3>
+                <img id="third-drink-image"src="https://via.placeholder.com/200x200">
+                <div id="">
+                  <h4></h4>
+                  <div id="">
+                    <h4 id="drink-name-three"></h4>
+                    <div id="drink-img-three"></div>
+                    <h5>ingredients</h5>
+                    <ul id="ingredients-three"></ul>
+                    <h4>Directions</h4>
+                    <h5 id="directions-three"></h5>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="cards card-4"><!-- card list items-->
+              <div id="card-content"><!--card content -->
+                <h3 id="fourth-character"> Character's Drink</h3>
+                <img id="fourth-drink-image"src="https://via.placeholder.com/200x200">
+                <div id="">
+                  <div id="">
+                    <h4 id="drink-name-four"></h4>
+                    <div id="drink-img-four"></div>
+                    <h5>ingredients</h5>
+                    <ul id="ingredients-four"></ul>
+                    <h4>Directions</h4>
+                    <h5 id="directions-four"></h5>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="cards card-5"><!-- card list items-->
+              <div id="card-content"><!--card content -->
+                <h3 id="fifth-character"> Character's Drink</h3>
+                <img id="fifth-drink-image"src="https://via.placeholder.com/200x200">
+                <div id="">
+                  <div id="">
+                    <h4 id="drink-name-five"></h4>
+                    <div id="drink-img-five"></div>
+                    <h5>ingredients</h5>
+                    <ul id="ingredients-five"></ul>
+                    <h4>Directions</h4>
+                    <h5 id="directions-five"></h5>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
     </div>
-
-    <!--Form for data request from user-->
-
-    <form id="form1">
-      <div class="grid-container ourForm">
-        <div class="grid-x grid-padding-x">
-
-          <!--Base Liquor Field-->
-          <div class="medium-12 cell">
-
-            <label class="ourFormText" for="base-liqour-input">Select your base liquor
-
-              <select form="form1" id="drop-down" placeholder="Liquor Selection" name="base-liquor-input" required>
-                <option disabled></option>
-                <option value="brandy">Brandy</option>
-                <option value="gin">Gin</option>
-                <option value="rum">Rum</option>
-                <option value="tequila">Tequila</option>
-                <option value="vodka">Vodka</option>
-                <option value="whiskey">Whiskey</option>
-              </select>
-            </label>
-          </div>
-
-          <!--First Ingredient Field-->
-          <!-- <div class="medium-6 cell">
-            <label class="ourFormText" for="first-ingredient-input">Type first Ingredient
-              <input id="first-ingredient-input" type="text" placeholder="ex. Sprite" >
-            </label>
-          </div> -->
-
-          <!--Second Ingredient Field-->
-          <!-- <div class="medium-6 cell">
-            <label class="ourFormText" for="second-ingredient-input" >Type Second Ingredient
-              <input id="second-ingredient-input" type="text" placeholder="ex. Orange Juice">
-            </label>
-          </div> -->
-
-          <!--Submit Button-->
-          <button type="submit" id="submitBtn" class="button large expanded ourButton">Get Schwifty</button>
-    </form>
-  </div>
-
-  <!-- <div class="add-foundation-container"></div> -->
-  <!-- div for card area -->
-  <!-- contact links, secondary html page -->
-  <div class="container" id="card-container">
-    <ul class="card-split" id="card-list"><!--card list-->
-
-      <li class="cards card-1"><!-- card list items-->
-
-        <div id="card-content"><!--card content -->
-
-          <h3 id="first-character"></h3>
-          <img id="first-drink-image" src="https://via.placeholder.com/200x200">
-          <h4 id="drink-name-one"></h4>
-          <div id="drink-img-one"></div>
-          <h5>ingredients</h5>
-          <ul id="ingredients-one"></ul>
-          <h4>Directions</h4>
-          <h5 id="directions-one"></h5>
-      </li>
-
-      <li class="cards card-2"><!-- card list items-->
-        <div id="card-content"><!--card content -->
-          <h3 id="second-character"> Character's Drink</h3>
-          <img id="second-drink-image" src="https://via.placeholder.com/200x200">
-          <h4 id="drink-name-two"></h4>
-          <div id="drink-img-two"></div>
-          <h5>ingredients</h5>
-          <ul id="ingredients-two"></ul>
-          <h4>Directions</h4>
-          <h5 id="directions-two"></h5>
-        </div>
-      </li>
-
-      <li class="cards card-3"><!-- card list items-->
-        <div id="card-content"><!--card content -->
-          <h3 id="third-character"> Character's Drink</h3>
-          <img id="third-drink-image"src="https://via.placeholder.com/200x200">
-          <div id="">
-            <h4></h4>
-            <div id="">
-              <h4 id="drink-name-three"></h4>
-              <div id="drink-img-three"></div>
-              <h5>ingredients</h5>
-              <ul id="ingredients-three"></ul>
-              <h4>Directions</h4>
-              <h5 id="directions-three"></h5>
-            </div>
-          </div>
-        </div>
-      </li>
-
-      <li class="cards card-4"><!-- card list items-->
-        <div id="card-content"><!--card content -->
-          <h3 id="fourth-character"> Character's Drink</h3>
-          <img id="fourth-drink-image"src="https://via.placeholder.com/200x200">
-          <div id="">
-            <div id="">
-              <h4 id="drink-name-four"></h4>
-              <div id="drink-img-four"></div>
-              <h5>ingredients</h5>
-              <ul id="ingredients-four"></ul>
-              <h4>Directions</h4>
-              <h5 id="directions-four"></h5>
-            </div>
-          </div>
-        </div>
-      </li>
-
-      <li class="cards card-5"><!-- card list items-->
-        <div id="card-content"><!--card content -->
-          <h3 id="fifth-character"> Character's Drink</h3>
-          <img id="fifth-drink-image"src="https://via.placeholder.com/200x200">
-          <div id="">
-            <div id="">
-              <h4 id="drink-name-five"></h4>
-              <div id="drink-img-five"></div>
-              <h5>ingredients</h5>
-              <ul id="ingredients-five"></ul>
-              <h4>Directions</h4>
-              <h5 id="directions-five"></h5>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  
   <footer>
     <a href="./aboutUs.html"> <h1>About Us</h1>
   </footer>
