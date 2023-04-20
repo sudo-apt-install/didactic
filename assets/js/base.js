@@ -31,6 +31,7 @@ submitBtnEl.addEventListener("click", function (event) {
   getCharThree();
   getCharFour();
   getCharFive();
+  $('.cards').css('display','inline-block')
 });
 
 // functions to get the cocktail ID number, depending on user input(s)
