@@ -450,6 +450,7 @@ function getCharTwo() {
       var characterName2 = data.name;
 
       document.getElementById('second-drink-image').src = `${rickandmortyImageURL}`
+
       var charcter2H3 = document.getElementById('second-character');
       charcter2H3.innerHTML = `${characterName2}'s Drink`;
 
@@ -476,6 +477,7 @@ function getCharThree() {
       characterName3 = data.name;
 
       document.getElementById('third-drink-image').src = `${rickandmortyImageURL}`
+
       var charcter3H3 = document.getElementById('third-character');
       charcter3H3.innerHTML = `${characterName3}'s Drink`;
 
@@ -502,6 +504,7 @@ function getCharFour() {
       characterName4 = data.name;
 
       document.getElementById('fourth-drink-image').src = `${rickandmortyImageURL}`
+
       var charcter4H3 = document.getElementById('fourth-character');
       charcter4H3.innerHTML = `${characterName4}'s Drink`;
 
@@ -526,6 +529,7 @@ function getCharFive() {
       var avatar = data.id;
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
       characterName5 = data.name;
+
 
       document.getElementById('fifth-drink-image').src = `${rickandmortyImageURL}`;
       var charcter5H3 = document.getElementById('fifth-character');
