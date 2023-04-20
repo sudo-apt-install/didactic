@@ -9,12 +9,9 @@
 *, *:before, *:after {
     box-sizing: border-box;
     text-align: center;
+    font-weight: bolder;
+    letter-spacing: .1rem;
 }
-
-
-/* * {
-    background-color: var(--space-black);
-} */
 
 /* Element selectors */
 body {
@@ -39,7 +36,9 @@ header {
     padding-top: 20px;
     margin: 0;
 }
-  
+  ul{
+    list-style-type: none;
+  }
 h1 {
 margin: 0;
 color: var(--rick-blue);
@@ -111,7 +110,7 @@ color: var(--space-black);
 }
 
 .cards {
-    display: inline-block;
+    display: none;
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
     margin: 0 auto 20px;
     color: var(--rick-blue);
