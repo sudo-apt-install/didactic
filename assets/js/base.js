@@ -145,16 +145,16 @@ fetch(rickandmortyURL, {
   // function showCocktail(data) {
   
   // };
+  
 
 $(document).ready(function () {
 
-  $('.card-split').on('click', () => {
+  $('.card-split').on('dblclick', () => {
     $('.cards').toggleClass('transition')
   });
- $('.cards').on(" touchstart touchend mouseenter mouseleave", function(){
+
+ $('.cards').on("click", function(){
   $(this).toggleClass('expand')
  })
-
-
 });
 

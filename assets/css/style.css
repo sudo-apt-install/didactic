@@ -130,11 +130,11 @@ color: var(--space-black);
     list-style-type: none;
     transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
     cursor: pointer;
-    transition: all 1s ease;
+    transition: all .5s ease;
 }
 .expand {
     height:fit-content;
-    width: fit-content;
+    width: 75%;
     z-index: 8;
 }
 
@@ -193,9 +193,6 @@ color: var(--space-black);
     display: flex;
     flex-direction: row;
 }
-
-#card-content{
-
 /* our form button styling */
 .ourFormText {
     color: var(--rick-blue);
@@ -217,11 +214,12 @@ color: var(--space-black);
 
 }
 
-#card-list{
-
-}
 
 
 
 /* Media Queries */
-
+@media (max-width: 800px) {
+    .cards{
+        position: inherit;
+    }
+  }
