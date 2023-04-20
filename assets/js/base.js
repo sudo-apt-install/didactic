@@ -89,7 +89,7 @@ function displayCardsOne(data) {
 
   drinkNameOneEl.innerHTML = data.drinks[0].strDrink;
 
-  // clears any pervious image
+  // clears any previous image
   drinkImgOneEl.textContent = '';
   // makes new drink image
   var drinkImgOne = document.createElement('img');
@@ -98,15 +98,13 @@ function displayCardsOne(data) {
   drinkImgOneEl.appendChild(drinkImgOne);
   console.log(data);
 
+  // clears previous ingredients
+  ingredientsOneEl.textContent = '';
   var ingredientsOneCard = data.drinks[0]
   for (var key in ingredientsOneCard) {
-    // console.log(key);
-    // console.log(ingredientsOneCard[key]);
     if (key.includes('strIngredient') && ingredientsOneCard[key] !== null) {
-      // console.log(key, ingredientsOneCard[key]);
       var ingredientsOne = document.createElement('li');
       ingredientsOne.textContent = ingredientsOneCard[key];
-      // console.log(ingredientsOne);
       ingredientsOneEl.appendChild(ingredientsOne);
     }
 
@@ -162,7 +160,6 @@ function displayCardsTwo(data) {
   var drinkImgTwoEl = document.getElementById('drink-img-two');
   var ingredientsTwoEl = document.getElementById('ingredients-two');
   var directionsTwoEl = document.getElementById('directions-two');
-  // var measurementsOneEl = document.getElementById('measurements-two');
 
   drinkNameTwoEl.innerHTML = data.drinks[0].strDrink;
 
@@ -174,15 +171,13 @@ function displayCardsTwo(data) {
   drinkImgTwo.src = data.drinks[0].strDrinkThumb;
   drinkImgTwoEl.appendChild(drinkImgTwo);
 
+  // clears previous ingredients
+  ingredientsTwoEl.textContent = '';
   var ingredientsTwoCard = data.drinks[0]
   for (var key in ingredientsTwoCard) {
-    // console.log(key);
-    // console.log(ingredientsTwoCard[key]);
     if (key.includes('strIngredient') && ingredientsTwoCard[key] !== null) {
-      // console.log(key, ingredientsTwoCard[key]);
       var ingredientsTwo = document.createElement('li');
       ingredientsTwo.textContent = ingredientsTwoCard[key];
-      // console.log(ingredientsTwo);
       ingredientsTwoEl.appendChild(ingredientsTwo);
     }
 
@@ -238,7 +233,6 @@ function displayCardsThree(data) {
   var drinkImgThreeEl = document.getElementById('drink-img-three');
   var ingredientsThreeEl = document.getElementById('ingredients-three');
   var directionsThreeEl = document.getElementById('directions-three');
-  // var measurementsOneEl = document.getElementById('measurements-two');
 
   drinkNameThreeEl.innerHTML = data.drinks[0].strDrink;
 
@@ -250,15 +244,13 @@ function displayCardsThree(data) {
   drinkImgThree.src = data.drinks[0].strDrinkThumb;
   drinkImgThreeEl.appendChild(drinkImgThree);
 
+  // clears previous ingredients
+  ingredientsThreeEl.textContent = '';
   var ingredientsThreeCard = data.drinks[0]
   for (var key in ingredientsThreeCard) {
-    // console.log(key);
-    // console.log(ingredientsThreeCard[key]);
     if (key.includes('strIngredient') && ingredientsThreeCard[key] !== null) {
-      // console.log(key, ingredientsThreeCard[key]);
       var ingredientsThree = document.createElement('li');
       ingredientsThree.textContent = ingredientsThreeCard[key];
-      // console.log(ingredientsThree);
       ingredientsThreeEl.appendChild(ingredientsThree);
     }
   }
@@ -313,7 +305,6 @@ function displayCardsFour(data) {
   var drinkImgFourEl = document.getElementById('drink-img-four');
   var ingredientsFourEl = document.getElementById('ingredients-four');
   var directionsFourEl = document.getElementById('directions-four');
-  // var measurementsOneEl = document.getElementById('measurements-two');
 
   drinkNameFourEl.innerHTML = data.drinks[0].strDrink;
 
@@ -325,15 +316,13 @@ function displayCardsFour(data) {
   drinkImgFour.src = data.drinks[0].strDrinkThumb;
   drinkImgFourEl.appendChild(drinkImgFour);
 
+  // clears previous ingredients
+  ingredientsFourEl.textContent = '';
   var ingredientsFourCard = data.drinks[0]
   for (var key in ingredientsFourCard) {
-    // console.log(key);
-    // console.log(ingredientsFourCard[key]);
     if (key.includes('strIngredient') && ingredientsFourCard[key] !== null) {
-      // console.log(key, ingredientsFourCard[key]);
       var ingredientsFour = document.createElement('li');
       ingredientsFour.textContent = ingredientsFourCard[key];
-      // console.log(ingredientsFour);
       ingredientsFourEl.appendChild(ingredientsFour);
     }
   }
@@ -391,7 +380,6 @@ function displayCardsFive(data) {
   var drinkImgFiveEl = document.getElementById('drink-img-five');
   var ingredientsFiveEl = document.getElementById('ingredients-five');
   var directionsFiveEl = document.getElementById('directions-five');
-  // var measurementsOneEl = document.getElementById('measurements-five');
 
   drinkNameFiveEl.innerHTML = data.drinks[0].strDrink;
 
@@ -403,15 +391,13 @@ function displayCardsFive(data) {
   drinkImgFive.src = data.drinks[0].strDrinkThumb;
   drinkImgFiveEl.appendChild(drinkImgFive);
 
+  // clears previous ingredients
+  ingredientsFiveEl.textContent = '';
   var ingredientsFiveCard = data.drinks[0]
   for (var key in ingredientsFiveCard) {
-    // console.log(key);
-    // console.log(ingredientsFiveCard[key]);
     if (key.includes('strIngredient') && ingredientsFiveCard[key] !== null) {
-      // console.log(key, ingredientsFiveCard[key]);
       var ingredientsFive = document.createElement('li');
       ingredientsFive.textContent = ingredientsFiveCard[key];
-      // console.log(ingredientsFive);
       ingredientsFiveEl.appendChild(ingredientsFive);
     }
   }
