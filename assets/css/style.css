@@ -12,7 +12,6 @@
     font-weight: bolder;
     letter-spacing: .1rem;
 }
-
 /* Element selectors */
 body {
     min-height: 1200px;
@@ -25,8 +24,6 @@ body {
   background-attachment: fixed;
   background-position: center;
 }
-
-/* Header Nav Styling */
 header {
     width: 100%;
     align-items: center;
@@ -36,7 +33,7 @@ header {
     padding-top: 20px;
     margin: 0;
 }
-  ul{
+ul{
     list-style-type: none;
   }
 h1 {
@@ -44,7 +41,6 @@ margin: 0;
 color: var(--rick-blue);
 text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
 }
-
 footer {
     position: fixed;
     top:90%;
@@ -54,44 +50,29 @@ a{
     color: var(--acid-green);
     padding: 20px;
 }
-
-/* Form Styling */
 form {
 width:100%;
 align-items: center; 
 color: var(--rick-blue);
-/* background-color: var(--space-black); */
 }
-
 form button {
     width: 50px;
     font-weight: bold;
 }
-
 /* Class Selectors */
-
-
 .header-image img {
     margin-bottom: 1rem;
-    /* rounds image corners */
     border-radius: 15px;
 }
-
-/* our form button styling */
 .ourForm {
     margin: 1rem 0 1rem 0;
     padding: 0.75rem;
-    /* width: 50rem; */
     border-radius: 15px;
-    /* background-color: var(--space-black); */
 }
-
 .ourFormText {
     color: var(--acid-green);
     font-size:x-large;
 }
-
-/* form input styling */
 .ourFormText input {
     border-radius: 10px;
     box-shadow: 2px 2px 15px 3px #aaa inset;
@@ -116,7 +97,6 @@ color: var(--space-black);
     background-color: var(--morty-yellow);
     color: var(--space-black);
 }
-
 .cards {
     display: none;
     text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
@@ -165,16 +145,13 @@ color: var(--space-black);
     width: 75%;
     z-index: 8;
 }
-
 .transition {
     position: relative;
     transform: rotate(0deg);
 }
-
 .cards img {
     border-radius: 20px;
     border: 3px solid var(--acid-green);
-    
 }
 .card-1 {
     z-index: 6;
@@ -196,73 +173,53 @@ color: var(--space-black);
     z-index: 2;
     transform: rotateZ(5deg);
 }
-
 .drink-image {
     max-width: 70px;
     max-height: 70px;
 }
-
+.ourFormText {
+    color: var(--rick-blue);
+    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+    font-size:x-large;
+    font-weight: bolder;
+}
+.ourButton {
+    background-color: var(--rick-blue);
+    color: var(--space-black);
+    border-radius: 15px;
+}
+.ourButton:hover {
+background-color: var(--acid-green);
+color: var(--space-black);
+}
 /* ID Selectors */
 #title {
     margin-bottom:5%;
 }
-
 #main-container {
     width: 100%;
-    /* background-color: var(--space-black); */
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
 #drop-down {
     border-radius: 10px;
-    /* adds shadow effect to the input area of the form */
     box-shadow: -2px 2px 15px 1px #8b8b8b inset;
 }
-
 #aboutMeImg{
     width: 20rem;
     height:auto;
     border: 5px solid var(--acid-green);
     border-radius: 10px;
 }
-
-#card-container {
-
-}
-/* our form button styling */
-.ourFormText {
-    color: var(--rick-blue);
-    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
-    font-size:x-large;
-    font-weight: bolder;
-    
-}
-
 #recallBtn {
     width: 200px;
     height: 50px;
     background-color: var(--rick-blue);
     border-radius: 15px;
 }
-
-.ourButton {
-    background-color: var(--rick-blue);
-    color: var(--space-black);
-    border-radius: 15px;
-}
-
-.ourButton:hover {
-background-color: var(--acid-green);
-color: var(--space-black);
-
-}
-
-
-
 
 /* Media Queries */
 @media (max-width: 1080px) {
