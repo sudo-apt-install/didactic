@@ -168,6 +168,11 @@ color: var(--space-black);
     transform: rotateZ(5deg);
 }
 
+.drink-image {
+    max-width: 70px;
+    max-height: 70px;
+}
+
 /* ID Selectors */
 
 
