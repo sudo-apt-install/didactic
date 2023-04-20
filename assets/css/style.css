@@ -1,22 +1,24 @@
 :root {
-    --pinky: #F23D6D;
-    --rick-blue: #3BC9D9;
-    --space-black: #0D0D0D;
-    --acid-green: #B3D92B;
-    --morty-yellow: #F5F582;
+  --pinky: #f23d6d;
+  --rick-blue: #3bc9d9;
+  --space-black: #0d0d0d;
+  --acid-green: #b3d92b;
+  --morty-yellow: #f5f582;
 }
 /* Universal Selectors */
-*, *:before, *:after {
-    box-sizing: border-box;
-    text-align: center;
-    font-weight: bolder;
-    letter-spacing: .1rem;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: bolder;
+  letter-spacing: 0.1rem;
 }
 /* Element selectors */
 body {
-    min-height: 1200px;
-    background-image: url(../Images/stars.jpg);
-    margin: 0;
+  min-height: 1200px;
+  background-image: url(../Images/stars.jpg);
+  margin: 0;
   padding: 0;
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,205 +27,211 @@ body {
   background-position: center;
 }
 header {
-    width: 100%;
-    align-items: center;
-    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
-    color: var(--rick-blue);
-    background-color: var(--space-black);
-    padding-top: 20px;
-    margin: 0;
+  width: 100%;
+  align-items: center;
+  text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green),
+    -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+  color: var(--rick-blue);
+  background-color: var(--space-black);
+  padding-top: 20px;
+  margin: 0;
 }
-ul{
-    list-style-type: none;
-  }
+ul {
+  list-style-type: none;
+}
 h1 {
-margin: 0;
-color: var(--rick-blue);
-text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+  margin: 0;
+  color: var(--rick-blue);
+  text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green),
+    -1px 1px var(--acid-green), 1px -1px var(--acid-green);
 }
 footer {
-    position: fixed;
-    top:90%;
-    z-index: 0;
+  position: fixed;
+  top: 90%;
+  z-index: 0;
 }
-a{
-    color: var(--acid-green);
-    padding: 20px;
+a {
+  color: var(--acid-green);
+  padding: 20px;
 }
 form {
-width:100%;
-align-items: center; 
-color: var(--rick-blue);
+  width: 100%;
+  align-items: center;
+  color: var(--rick-blue);
 }
 form button {
-    width: 50px;
-    font-weight: bold;
+  width: 50px;
+  font-weight: bold;
 }
 /* Class Selectors */
 .header-image img {
-    margin-bottom: 1rem;
-    border-radius: 15px;
+  margin-bottom: 1rem;
+  border-radius: 15px;
 }
 .ourForm {
-    margin: 1rem 0 1rem 0;
-    padding: 0.75rem;
-    border-radius: 15px;
+  margin: 1rem 0 1rem 0;
+  padding: 0.75rem;
+  border-radius: 15px;
 }
 .ourFormText {
-    color: var(--acid-green);
-    font-size:x-large;
+  color: var(--acid-green);
+  font-size: x-large;
 }
 .ourFormText input {
-    border-radius: 10px;
-    box-shadow: 2px 2px 15px 3px #aaa inset;
+  border-radius: 10px;
+  box-shadow: 2px 2px 15px 3px #aaa inset;
 }
 
 .ourButton {
-    width: 20px;
-    background-color: var(--rick-blue);
-    color: var(--space-black);
-    border-radius: 15px;
+  width: 20px;
+  background-color: var(--rick-blue);
+  color: var(--space-black);
+  border-radius: 15px;
 }
 
 .ourButton:hover {
-background-color: var(--acid-green);
-color: var(--space-black);
+  background-color: var(--acid-green);
+  color: var(--space-black);
 }
 
 .ourButton:active {
-    background-color: var(--pinky);
+  background-color: var(--pinky);
 }
 .ourButton:focus {
-    background-color: var(--morty-yellow);
-    color: var(--space-black);
+  background-color: var(--morty-yellow);
+  color: var(--space-black);
 }
 .cards {
-    display: none;
-    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
-    margin: 0 auto 60px;
-    color: var(--rick-blue);
-    border: 3px solid var(--acid-green);
-    background-color: var(--space-black);
-    height: 25rem;
-    width: 17rem;
-    left: 0; 
-  right: 0; 
-  margin-left: auto; 
-  margin-right: auto; 
-    border-radius: 10px;
-    box-shadow: 1px 2px 2px 0 #aaa;
-    position: absolute;
-    overflow: hidden;
-    list-style-type: none;
-    transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
-    cursor: pointer;
-    transition: all .5s ease;
+  display: none;
+  text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green),
+    -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+  margin: 0 auto 60px;
+  color: var(--rick-blue);
+  border: 3px solid var(--acid-green);
+  background-color: var(--space-black);
+  height: 25rem;
+  width: 17rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  position: absolute;
+  overflow: hidden;
+  list-style-type: none;
+  transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+  transition: all 0.5s ease;
 }
 .cardz {
-    display: inline-block;
-    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
-    margin: 0 auto 60px;
-    color: var(--rick-blue);
-    border: 3px solid var(--acid-green);
-    background-color: var(--space-black);
-    height: fit-content;
-    width: 25rem;
-    left: 0; 
-  right: 0; 
-  margin-left: auto; 
-  margin-right: auto; 
-    border-radius: 10px;
-    box-shadow: 1px 2px 2px 0 #aaa;
-    overflow: hidden;
-    list-style-type: none;
-    transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
-    cursor: pointer;
-    transition: all .5s ease;
+  display: inline-block;
+  text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green),
+    -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+  margin: 0 auto 60px;
+  color: var(--rick-blue);
+  border: 3px solid var(--acid-green);
+  background-color: var(--space-black);
+  height: fit-content;
+  width: 25rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 1px 2px 2px 0 #aaa;
+  overflow: hidden;
+  list-style-type: none;
+  transition: all cubic-bezier(0.645, 0.045, 0.355, 1);
+  cursor: pointer;
+  transition: all 0.5s ease;
 }
 .expand {
-    height:fit-content;
-    width: 75%;
-    z-index: 8;
+  height: fit-content;
+  width: 75%;
+  z-index: 8;
 }
 .transition {
-    position: relative;
-    transform: rotate(0deg);
+  position: relative;
+  transform: rotate(0deg);
 }
 .cards img {
-    border-radius: 20px;
-    border: 3px solid var(--acid-green);
+  border-radius: 20px;
+  border: 3px solid var(--acid-green);
 }
 .card-1 {
-    z-index: 6;
-    transform: rotateZ(0deg);
+  z-index: 6;
+  transform: rotateZ(0deg);
 }
 .card-2 {
-    z-index: 5;
-    transform: rotateZ(2.5deg);
+  z-index: 5;
+  transform: rotateZ(2.5deg);
 }
 .card-3 {
-    z-index: 4;
-    transform: rotateZ(-2.5deg);
+  z-index: 4;
+  transform: rotateZ(-2.5deg);
 }
 .card-4 {
-    z-index: 3;
-    transform: rotateZ(-5deg);
+  z-index: 3;
+  transform: rotateZ(-5deg);
 }
 .card-5 {
-    z-index: 2;
-    transform: rotateZ(5deg);
+  z-index: 2;
+  transform: rotateZ(5deg);
 }
 .drink-image {
-    max-width: 70px;
-    max-height: 70px;
+  max-width: 70px;
+  max-height: 70px;
 }
 .ourFormText {
-    color: var(--rick-blue);
-    text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green), -1px 1px var(--acid-green), 1px -1px var(--acid-green);
-    font-size:x-large;
-    font-weight: bolder;
+  color: var(--rick-blue);
+  text-shadow: -1px -1px 0 var(--acid-green), 1px 1px 0 var(--acid-green),
+    -1px 1px var(--acid-green), 1px -1px var(--acid-green);
+  font-size: x-large;
+  font-weight: bolder;
 }
 .ourButton {
-    background-color: var(--rick-blue);
-    color: var(--space-black);
-    border-radius: 15px;
+  background-color: var(--rick-blue);
+  color: var(--space-black);
+  border-radius: 15px;
 }
 .ourButton:hover {
-background-color: var(--acid-green);
-color: var(--space-black);
+  background-color: var(--acid-green);
+  color: var(--space-black);
 }
 /* ID Selectors */
 #title {
-    margin-bottom:5%;
+  margin-bottom: 5%;
 }
 #main-container {
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #drop-down {
-    border-radius: 10px;
-    box-shadow: -2px 2px 15px 1px #8b8b8b inset;
+  border-radius: 10px;
+  box-shadow: -2px 2px 15px 1px #8b8b8b inset;
 }
-#aboutMeImg{
-    width: 20rem;
-    height:auto;
-    border: 5px solid var(--acid-green);
-    border-radius: 10px;
+#aboutMeImg {
+  width: 20rem;
+  height: auto;
+  border: 5px solid var(--acid-green);
+  border-radius: 10px;
 }
 #recallBtn {
-    width: 200px;
-    height: 50px;
-    background-color: var(--rick-blue);
-    border-radius: 15px;
+  width: 200px;
+  height: 50px;
+  background-color: var(--rick-blue);
+  border-radius: 15px;
 }
 
 /* Media Queries */
 @media (max-width: 1080px) {
-    .cards{
-        position: relative;
-    }
+  .cards {
+    position: relative;
   }
+}
+
