@@ -623,11 +623,12 @@ function getPreviousCards() {
   var recallBtn = document.createElement('button');
   recallBtn.setAttribute('id', 'recallBtn');
   recallBtn.setAttribute('type', 'button');
+  recallBtn.setAttribute('class', 'ourButton button');
   recallBtnDiv.appendChild(recallBtn);
 
 
 
-  recallBtn.innerHTML = "Last Deck";
+  recallBtn.innerHTML = "Last Round";
   recallBtn.addEventListener('click', function () {
     console.log("test test tests tests");
     displayCardsOne(arrOneData.at(-2));
