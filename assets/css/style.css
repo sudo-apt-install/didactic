@@ -242,6 +242,13 @@ color: var(--space-black);
     
 }
 
+#recallBtn {
+    width: 200px;
+    height: 50px;
+    background-color: var(--rick-blue);
+    border-radius: 15px;
+}
+
 .ourButton {
     background-color: var(--rick-blue);
     color: var(--space-black);
