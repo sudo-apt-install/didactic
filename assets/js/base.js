@@ -37,6 +37,7 @@ submitBtnEl.addEventListener("click", function (event) {
   getCharThree();
   getCharFour();
   getCharFive();
+  getPreviousCards();
   $(".cards").css("display", "inline-block");
 });
 
@@ -47,8 +48,6 @@ function getCocktailBaseOne(baseLiquor) {
   cocktailQueryUrl = `https://www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}`;
   fetch(cocktailQueryUrl, {
     method: "GET",
-    // credentials: 'same-origin',
-    // redirect: 'follow',
   })
     .then(function (response) {
       if (!response.ok) {
@@ -59,7 +58,6 @@ function getCocktailBaseOne(baseLiquor) {
     .then(function (data) {
       console.log(data);
       if (data.length === 0) {
-        // !we need to use a modal here, not an alert
         alert("wubba-lubba-dub-dub!  No results, try again!");
       }
       var randomNumber = Math.floor(Math.random() * data.drinks.length);
@@ -84,6 +82,8 @@ function getDetailsOne(cocktailID) {
       })
       .then(function (data) {
         console.log(data);
+        arrOneData.push(data);
+        localStorage.setItem("drink-one-data", JSON.stringify(arrOneData));
 
         displayCardsOne(data);
         previousDrinks.add(cocktailID);
@@ -162,7 +162,8 @@ function getDetailsTwo(cocktailID) {
       })
       .then(function (data) {
         console.log(data);
-
+        arrTwoData.push(data);
+        localStorage.setItem("drink-two-data", JSON.stringify(arrTwoData));
         displayCardsTwo(data);
         previousDrinks.add(cocktailID);
       });
@@ -236,6 +237,8 @@ function getDetailsThree(cocktailID) {
       })
       .then(function (data) {
         console.log(data);
+        arrThreeData.push(data);
+        localStorage.setItem("drink-three-data", JSON.stringify(arrThreeData));
         previousDrinks.add(cocktailID);
 
         displayCardsThree(data);
@@ -289,7 +292,6 @@ function getCocktailBaseFour(baseLiquor) {
     .then(function (data) {
       console.log(data);
       if (data.length === 0) {
-        // !we need to use a modal here, not an alert
         alert("wubba-lubba-dub-dub!  No results, try again!");
       }
 
@@ -311,6 +313,8 @@ function getDetailsFour(cocktailID) {
       })
       .then(function (data) {
         console.log(data);
+        arrFourData.push(data);
+        localStorage.setItem("drink-four-data", JSON.stringify(arrFourData));
         previousDrinks.add(cocktailID);
 
         displayCardsFour(data);
@@ -386,8 +390,9 @@ function getDetailsFive(cocktailID) {
 
       .then(function (data) {
         console.log(data);
+        arrFiveData.push(data);
+        localStorage.setItem("drink-five-data", JSON.stringify(arrFiveData));
         previousDrinks.add(cocktailID);
-
         displayCardsFive(data);
       });
   } else {
@@ -572,3 +577,47 @@ $(document).ready(function () {
     $(this).toggleClass("expand");
   });
 });
+
+
+// recall button and recall function
+
+var arrOneData =
+  JSON.parse(localStorage.getItem("drink-one-data")) || [];
+var arrTwoData =
+  JSON.parse(localStorage.getItem("drink-two-data")) || [];
+var arrThreeData =
+  JSON.parse(localStorage.getItem("drink-three-data")) || [];
+var arrFourData =
+  JSON.parse(localStorage.getItem("drink-four-data")) || [];
+var arrFiveData =
+  JSON.parse(localStorage.getItem("drink-five-data")) || [];
+
+
+function getPreviousCards() {
+  var recallBtnDiv = document.getElementById('recallBtnDiv');
+  recallBtnDiv.innerHTML = '';
+
+
+  var recallBtn = document.createElement('button');
+  recallBtn.setAttribute('id', 'recallBtn');
+  recallBtn.setAttribute('type', 'button');
+  recallBtnDiv.appendChild(recallBtn);
+
+
+
+  recallBtn.innerHTML = "Last Deck";
+  recallBtn.addEventListener('click', function () {
+    console.log("test test tests tests");
+    displayCardsOne(arrOneData.at(-2));
+    displayCardsTwo(arrTwoData.at(-2));
+    displayCardsThree(arrThreeData.at(-2));
+    displayCardsFour(arrFourData.at(-2));
+    displayCardsFive(arrFiveData.at(-2));
+
+    getCharOne();
+    getCharTwo();
+    getCharThree();
+    getCharFour();
+    getCharFive();
+  });
+};
