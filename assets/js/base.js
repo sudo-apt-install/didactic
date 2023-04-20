@@ -376,6 +376,7 @@ function getDetailsFive(cocktailID) {
       }
       return response.json();
     })
+
     .then(function (data) {
       console.log(data);
 
@@ -416,20 +417,6 @@ function displayCardsFive(data) {
   }
   directionsFiveEl.innerHTML = data.drinks[0].strInstructions;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function getCharOne() {
   var character = Math.floor(Math.random() * 826);
@@ -547,13 +534,15 @@ function getCharFive() {
 
 };
 
+
 $(document).ready(function () {
 
-  $('.cards').on('dblclick', () => {
+  $('.card-split').on('dblclick', () => {
     $('.cards').toggleClass('transition')
   });
-  $('.cards').on('click', () => {
-    $('.cards').toggleClass('expand')
-  });
+
+ $('.cards').on("click", function(){
+  $(this).toggleClass('expand')
+ })
 });
 
