@@ -10,7 +10,6 @@ baseLiquorEl.addEventListener("change", () => {
 // function to save base liquor input to local storage
 function saveBaseLiquor() {
   // clear base liquor input field after submission
-  baseLiquorEl.value = "";
   console.log(baseLiquor);
   // baseLiquorChoices.push(baseLiquor);
   localStorage.setItem("base-liquor", JSON.stringify(baseLiquorChoices));
@@ -19,7 +18,9 @@ function saveBaseLiquor() {
 var submitBtnEl = document.getElementById("submitBtn");
 submitBtnEl.addEventListener("click", function (event) {
   event.preventDefault();
-
+  if (!baseLiquorEl.value) {
+    alert("gimme some basic info, Morty!");
+  }
   saveBaseLiquor();
   getCocktailBaseOne(baseLiquor);
   getCocktailBaseTwo(baseLiquor);
