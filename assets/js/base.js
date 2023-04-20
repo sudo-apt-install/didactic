@@ -12,7 +12,7 @@ function saveBaseLiquor() {
   // clear base liquor input field after submission
   baseLiquorEl.value = "";
   console.log(baseLiquor);
-  baseLiquorChoices.push(baseLiquor);
+  // baseLiquorChoices.push(baseLiquor);
   localStorage.setItem("base-liquor", JSON.stringify(baseLiquorChoices));
 };
 
@@ -420,8 +420,12 @@ function getCharOne() {
       console.log(data);
       var avatar = data.id;
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+      var characterName = data.name;
+      console.log(characterName);
 
-      document.getElementById('first-drink-image').src = `${rickandmortyImageURL}`
+      document.getElementById('first-drink-image').src = `${rickandmortyImageURL}`;
+      var charcterH3 = document.getElementById('first-character');
+      charcterH3.innerHTML = `${characterName}'s Drink`;
 
       console.log(rickandmortyImageURL);
     });
@@ -443,8 +447,11 @@ function getCharTwo() {
       console.log(data);
       var avatar = data.id;
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+      var characterName2 = data.name;
 
       document.getElementById('second-drink-image').src = `${rickandmortyImageURL}`
+      var charcter2H3 = document.getElementById('second-character');
+      charcter2H3.innerHTML = `${characterName2}'s Drink`;
 
       console.log(rickandmortyImageURL);
     });
@@ -466,8 +473,11 @@ function getCharThree() {
       console.log(data);
       var avatar = data.id;
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+      characterName3 = data.name;
 
       document.getElementById('third-drink-image').src = `${rickandmortyImageURL}`
+      var charcter3H3 = document.getElementById('third-character');
+      charcter3H3.innerHTML = `${characterName3}'s Drink`;
 
       console.log(rickandmortyImageURL);
     });
@@ -489,8 +499,11 @@ function getCharFour() {
       console.log(data);
       var avatar = data.id;
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+      characterName4 = data.name;
 
       document.getElementById('fourth-drink-image').src = `${rickandmortyImageURL}`
+      var charcter4H3 = document.getElementById('fourth-character');
+      charcter4H3.innerHTML = `${characterName4}'s Drink`;
 
       console.log(rickandmortyImageURL);
     });
@@ -512,8 +525,11 @@ function getCharFive() {
       console.log(data);
       var avatar = data.id;
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+      characterName5 = data.name;
 
-      document.getElementById('fifth-drink-image').src = `${rickandmortyImageURL}`
+      document.getElementById('fifth-drink-image').src = `${rickandmortyImageURL}`;
+      var charcter5H3 = document.getElementById('fifth-character');
+      charcter5H3.innerHTML = `${characterName5}'s Drink`;
 
       console.log(rickandmortyImageURL);
     });
