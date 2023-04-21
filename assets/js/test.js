@@ -1,3 +1,47 @@
+var allCardIds = [
+  {
+    cardH3: document.getElementById("first-character"),
+    cardImg: document.getElementById("first-drink-image"),
+    cardH4: document.getElementById("drink-name-one"),
+    cardIngredients: document.getElementById("ingredients-one"),
+    cardDirections: document.getElementById("directions-one"),
+    cardDrinkImg: document.getElementById("drink-img-one"),
+  },
+  {
+    cardH3: document.getElementById("second-character"),
+    cardImg: document.getElementById("second-drink-image"),
+    cardH4: document.getElementById("drink-name-two"),
+    cardIngredients: document.getElementById("ingredients-two"),
+    cardDirections: document.getElementById("directions-two"),
+    cardDrinkImg: document.getElementById("drink-img-two"),
+  },
+  {
+    cardH3: document.getElementById("third-character"),
+    cardImg: document.getElementById("third-drink-image"),
+    cardH4: document.getElementById("drink-name-three"),
+    cardIngredients: document.getElementById("ingredients-three"),
+    cardDirections: document.getElementById("directions-three"),
+    cardDrinkImg: document.getElementById("drink-img-three"),
+  },
+  {
+    cardH3: document.getElementById("fourth-character"),
+    cardImg: document.getElementById("fourth-drink-image"),
+    cardH4: document.getElementById("drink-name-four"),
+    cardIngredients: document.getElementById("ingredients-four"),
+    cardDirections: document.getElementById("directions-four"),
+    cardDrinkImg: document.getElementById("drink-img-four"),
+  },
+  {
+    cardH3: document.getElementById("fifth-character"),
+    cardImg: document.getElementById("fifth-drink-image"),
+    cardH4: document.getElementById("drink-name-five"),
+    cardIngredients: document.getElementById("ingredients-five"),
+    cardDirections: document.getElementById("directions-five"),
+    cardDrinkImg: document.getElementById("drink-img-five"),
+  },
+];
+var previousDrinks = new Set();
+
 // array of base liquor choices, if empty set up array
 var baseLiquorChoices =
   JSON.parse(localStorage.getItem("base-liquor-choices")) || [];
@@ -7,91 +51,36 @@ baseLiquorEl.addEventListener("change", () => {
   baseLiquor = baseLiquorEl.value;
 });
 
-// array of First ingredient choices, if empty set up array
-var firstIngredientChoices =
-  JSON.parse(localStorage.getItem("first-ingredients-choices")) || [];
-var firstIngredientEl = document.getElementById("first-ingredient-input");
-var firstIngredient = firstIngredientEl.value.trim();
-
-// array of Second ingredient choices, if empty set up array
-var secondIngredientChoices =
-  JSON.parse(localStorage.getItem("second-ingredients-choices")) || [];
-var secondIngredientEl = document.getElementById("second-ingredient-input");
-var secondIngredient = secondIngredientEl.value.trim();
-
 // function to save base liquor input to local storage
 function saveBaseLiquor() {
-  // clear base liquor input field after submission
-  baseLiquorEl.value = "";
-  console.log(baseLiquor);
   baseLiquorChoices.push(baseLiquor);
   localStorage.setItem("base-liquor", JSON.stringify(baseLiquorChoices));
 }
 
-// function to save FIRST ingredients input to local storage
-function saveFirstIngredients() {
-  // clear first ingredient input field after submission
-  firstIngredientEl.value = "";
-  console.log(firstIngredient);
-  firstIngredientChoices.push(firstIngredient);
-  localStorage.setItem(
-    "first-ingredients-choices",
-    JSON.stringify(firstIngredientChoices)
-  );
-}
-
-// function to save SECOND ingredients input to local storage
-function saveSecondIngredients() {
-  // clear second ingredient input field after submission
-  secondIngredientEl.value = "";
-  console.log(secondIngredient);
-  secondIngredientChoices.push(secondIngredient);
-  localStorage.setItem(
-    "second-ingredients-choices",
-    JSON.stringify(secondIngredientChoices)
-  );
-}
-
-// event listener for all liquor and ingredient choices input
 var submitBtnEl = document.getElementById("submitBtn");
 submitBtnEl.addEventListener("click", function (event) {
   event.preventDefault();
-
-  switch (true) {
-    case baseLiquor && !firstIngredient && !secondIngredient:
-      saveBaseLiquor(baseLiquor);
-      getCocktailBaseOnlyID(baseLiquor);
-      break;
-    case baseLiquor && firstIngredient && !secondIngredient:
-      saveBaseLiquor(baseLiquor);
-      saveFirstIngredients(firstIngredient);
-      getCocktailWithFirstIngrID(baseLiquor, firstIngredient);
-      break;
-    case baseLiquor && !firstIngredient && secondIngredient:
-      saveBaseLiquor(baseLiquor);
-      saveSecondIngredients(secondIngredient);
-      getCocktailWithSecondIngrID(baseLiquor, secondIngredient);
-      break;
-    case baseLiquor && firstIngredient && secondIngredient:
-      saveBaseLiquor(baseLiquor);
-      saveFirstIngredients(firstIngredient);
-      saveSecondIngredients(secondIngredient);
-      getCocktailWithTwoIngrID(baseLiquor, firstIngredient, secondIngredient);
-      break;
-    default: // Or use a modal here
-      alert("Gimme some basic info, Morty!");
-      return;
+  if (!baseLiquorEl.value) {
+    alert("gimme some basic info, Morty!");
   }
+  // Call getCharacter for each card
+  for (let h = 0; h < allCardIds.length; h++) {
+    getCharacter(allCardIds[h]);
+    saveBaseLiquor();
+    getCocktailBase(allCardIds[h], baseLiquor);
+  }
+
+  $(".cards").css("display", "inline-block");
 });
 
 // functions to get the cocktail ID number, depending on user input(s)
+// CARD ONE
 APIkey = 1;
-function getCocktailBaseOnlyID(baseLiquor) {
+
+function getCocktailBase(card, baseLiquor) {
   cocktailQueryUrl = `https://www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}`;
   fetch(cocktailQueryUrl, {
     method: "GET",
-    // credentials: 'same-origin',
-    // redirect: 'follow',
   })
     .then(function (response) {
       if (!response.ok) {
@@ -101,151 +90,106 @@ function getCocktailBaseOnlyID(baseLiquor) {
     })
     .then(function (data) {
       console.log(data);
-      if (data.length === 0) {
-        // !we need to use a modal here, not an alert
+      if (data.drinks.length === 0) {
         alert("wubba-lubba-dub-dub!  No results, try again!");
+      } else {
+        var randomNumber = Math.floor(Math.random() * data.drinks.length);
+        cocktailID = data.drinks[randomNumber].idDrink;
+        console.log(cocktailID);
+        getDrinkDetails();
       }
-
-      getDetails(data.drinks[0].idDrink);
-    });
-}
-
-function getCocktailWithFirstIngrID(baseLiquor, firstIngredient) {
-  cocktailQueryUrl = `https://www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}&i=${firstIngredient}`;
-  fetch(cocktailQueryUrl, {
-    method: "GET",
-    credentials: "same-origin",
-    redirect: "follow",
-  })
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error("Bad network response");
-      }
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      if (data.length === 0) {
-        // !we need to use a modal here, not an alert
-        alert("wubba-lubba-dub-dub!  No results, try again!");
-      }
-      getDetails(data.drinks[0].idDrink);
-    });
-}
-
-function getCocktailWithSecondIngrID(baseLiquor, secondIngredient) {
-  APIkey = 1;
-  cocktailQueryUrl = `https://www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}&i=${secondIngredient}`;
-  fetch(cocktailQueryUrl, {
-    method: "GET",
-    credentials: "same-origin",
-    redirect: "follow",
-  })
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error("Bad network response");
-      }
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      if (data.length === 0) {
-        // !we need to use a modal here, not an alert
-        alert("Wubba-lubba-dub-dub!  No results, try again!");
-      }
-      // need for loop for [i], not [0].
-      getDetails(data.drinks[0].idDrink);
-    });
-}
-
-function getCocktailWithTwoIngrID(
-  baseLiquor,
-  firstIngredient,
-  secondIngredient
-) {
-  cocktailQueryUrl = `https://www.thecocktaildb.com/api/json/v1/${APIkey}/filter.php?i=${baseLiquor}&i=${firstIngredient}&i=${secondIngredient}`;
-  fetch(cocktailQueryUrl, {
-    method: "GET",
-    credentials: "same-origin",
-    redirect: "follow",
-  })
-    .then(function (response) {
-      if (!response.ok) {
-        throw new Error("Bad network response");
-      }
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-      if (data.length === 0) {
-        // !we need to use a modal here, not an alert
-        alert("Wubba-lubba-dub-dub!  No results, try again!");
-      }
-      getDetails(data.drinks[0].idDrink);
     });
 }
 
 // function for getting rest of ingredients and directions depending on cocktail ID
-function getDetails(cocktailID) {
-  ingredientQueryUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailID}`;
-  fetch(ingredientQueryUrl, {
+function getDrinkDetails(cocktailID) {
+  if (!previousDrinks.has(cocktailID)) {
+    ingredientQueryUrl = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktailID}`;
+    return fetch(ingredientQueryUrl, {
+      method: "GET",
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("Bad network response");
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        // var cocktailTumbnail = data.drinks
+        displayCards(data);
+        previousDrinks.add(cocktailID);
+      });
+  } else {
+    getDrinkDetails(cocktailID);
+  }
+}
+
+function displayCards(card, data) {
+  drinkImg.textContent = "";
+
+  // makes new drink image
+  var drinkImg = document.createElement("img");
+  drinkImg.setAttribute("class", "drink-image");
+  drinkImg.src = data.drinks[0].strDrinkThumb;
+  allCardIds.cardDrinkImg.appendChild(drinkImg);
+
+  card.cardH4.textContent = data.drinks[randomNumber].strDrink;
+  card.cardIngredients.textContent =
+    data.drinks[randomNumber].strIngredient1 +
+    ", " +
+    data.drinks[randomNumber].strIngredient2 +
+    ", " +
+    data.drinks[randomNumber].strIngredient3;
+  card.cardDirections.textContent = data.drinks[randomNumber].strInstructions;
+
+  allCardIds.cardH4.textContent = data.drinks[0].strDrink;
+
+  // clears previous ingredients
+  card.cardIngredients.textContent = "";
+  var ingredientsOneCard = data.drinks[0];
+  for (var key in ingredientsOneCard) {
+    if (key.includes("strIngredient") && ingredientsOneCard[key] !== null) {
+      var ingredientsOne = document.createElement("li");
+      ingredientsOne.textContent = ingredientsOneCard[key];
+      ingredientsOneEl.appendChild(ingredientsOne);
+    }
+  }
+
+  cardH4.innerHTML = data.drinks[0].strInstructions;
+}
+
+function getCharacter(card) {
+  var character = Math.floor(Math.random() * 826);
+  var rickandmortyURL = `https://rickandmortyapi.com/api/character/${character}`;
+  fetch(rickandmortyURL, {
     method: "GET",
   })
     .then(function (response) {
       if (!response.ok) {
-        throw new Error("Bad network response");
+        throw new Error("Wubba-lubba-dub-dub! Bad network response");
       }
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      var avatar = data.id;
+      var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+      var characterName = data.name;
 
-      // displayCards(data);
+      card.cardImg.src = rickandmortyImageURL;
+      card.cardH3.innerHTML = `${characterName}'s Drink`;
     });
-
-  // return drinkDetails = {
-  //   cocktailName: data.drinks[0].strDrink,
-  //   cocktailImg: data.drinks[0].strDrinkThumb,
-  //   glassType: data.drinks[0].strGlass,
-  //   ingredients: data.drinks[0].strIngredient[1],
-  //   instructions: data.drinks[0].strInstructions,
-  //   measurements: [data.drinks[0].strMeasure[1]]
-
-  // }
 }
 
-var character = Math.floor(Math.random() * 826);
-
-console.log(character);
-
-var rickandmortyURL = `https://rickandmortyapi.com/api/character/${character}`;
-
-fetch(rickandmortyURL, {
-  method: "GET",
-})
-  .then(function (response) {
-    if (!response.ok) {
-      throw new Error("Wubba-lubba-dub-dub! Bad network response");
-    }
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    var avatar = data.id;
-    var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
-
-    document.getElementById('first-drink-image').src=`${rickandmortyImageURL}`
-
-    console.log(rickandmortyImageURL);
+$(document).ready(function () {
+  $(".card-split").on("dblclick", () => {
+    $(".cards").toggleClass("transition");
   });
 
-  $(document).ready(function() {
+  $(".cards").on("click", function () {
+    $(this).toggleClass("expand");
+  });
 
-    $('.cards').on('dblclick', () =>{
-      $('.cards').toggleClass('transition')
-    });
-    $('.cards').on('click', () =>{
-      $('.cards').toggleClass('expand')
-    });
-    });
-    
+  $(".cardz").on("click", function () {
+    $(this).toggleClass("expand");
+  });
+});
