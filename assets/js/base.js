@@ -455,6 +455,8 @@ function getCharOne() {
       charcterH3.innerHTML = `${characterName}'s Drink`;
 
       console.log(rickandmortyImageURL);
+      arrCharOne.push(data);
+      localStorage.setItem("char-1", JSON.stringify(arrCharOne));
     });
 }
 function getCharTwo() {
@@ -483,6 +485,8 @@ function getCharTwo() {
       charcter2H3.innerHTML = `${characterName2}'s Drink`;
 
       console.log(rickandmortyImageURL);
+      arrCharTwo.push(data);
+      localStorage.setItem("char-2", JSON.stringify(arrCharTwo));
     });
 }
 function getCharThree() {
@@ -511,6 +515,8 @@ function getCharThree() {
       charcter3H3.innerHTML = `${characterName3}'s Drink`;
 
       console.log(rickandmortyImageURL);
+      arrCharThree.push(data);
+      localStorage.setItem("char-3", JSON.stringify(arrCharThree));
     });
 }
 function getCharFour() {
@@ -539,6 +545,8 @@ function getCharFour() {
       charcter4H3.innerHTML = `${characterName4}'s Drink`;
 
       console.log(rickandmortyImageURL);
+      arrCharFour.push(data);
+      localStorage.setItem("char-4", JSON.stringify(arrCharFour));
     });
 }
 function getCharFive() {
@@ -558,14 +566,16 @@ function getCharFive() {
       var avatar = data.id;
       var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
       characterName5 = data.name;
-
+      
       document.getElementById(
         "fifth-drink-image"
-      ).src = `${rickandmortyImageURL}`;
-      var charcter5H3 = document.getElementById("fifth-character");
-      charcter5H3.innerHTML = `${characterName5}'s Drink`;
-
-      console.log(rickandmortyImageURL);
+        ).src = `${rickandmortyImageURL}`;
+        var charcter5H3 = document.getElementById("fifth-character");
+        charcter5H3.innerHTML = `${characterName5}'s Drink`;
+        
+        console.log(rickandmortyImageURL);
+        arrCharFive.push(data);
+        localStorage.setItem("char-5", JSON.stringify(arrCharFive));
     });
 }
 
@@ -592,6 +602,18 @@ var arrFourData =
 var arrFiveData =
   JSON.parse(localStorage.getItem("drink-five-data")) || [];
 
+var arrCharOne =
+  JSON.parse(localStorage.getItem("char-1")) || [];
+var arrCharTwo =
+  JSON.parse(localStorage.getItem("char-2")) || [];
+var arrCharThree =
+  JSON.parse(localStorage.getItem("char-3")) || [];
+var arrCharFour =
+  JSON.parse(localStorage.getItem("char-4")) || [];
+var arrCharFive =
+  JSON.parse(localStorage.getItem("char-5")) || [];
+
+
 
 function getPreviousCards() {
   var recallBtnDiv = document.getElementById('recallBtnDiv');
@@ -601,11 +623,12 @@ function getPreviousCards() {
   var recallBtn = document.createElement('button');
   recallBtn.setAttribute('id', 'recallBtn');
   recallBtn.setAttribute('type', 'button');
+  recallBtn.setAttribute('class', 'ourButton button');
   recallBtnDiv.appendChild(recallBtn);
 
 
 
-  recallBtn.innerHTML = "Last Deck";
+  recallBtn.innerHTML = "Last Round";
   recallBtn.addEventListener('click', function () {
     console.log("test test tests tests");
     displayCardsOne(arrOneData.at(-2));
@@ -614,10 +637,75 @@ function getPreviousCards() {
     displayCardsFour(arrFourData.at(-2));
     displayCardsFive(arrFiveData.at(-2));
 
-    getCharOne();
-    getCharTwo();
-    getCharThree();
-    getCharFour();
-    getCharFive();
+    charOneAgain();
+    charTwoAgain();
+    charThreeAgain();
+    charFourAgain();
+    charFiveAgain();
   });
+};
+
+function charOneAgain() {
+  var avatar = arrCharOne.at(-2).id;
+  var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+  var characterName = arrCharOne.at(-2).name;
+  console.log(characterName);
+
+  document.getElementById(
+    "first-drink-image"
+  ).src = `${rickandmortyImageURL}`;
+  var charcterH3 = document.getElementById("first-character");
+  charcterH3.innerHTML = `${characterName}'s Drink`;
+};
+
+function charTwoAgain() {
+  var avatar = arrCharTwo.at(-2).id;
+  var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+  var characterName = arrCharTwo.at(-2).name;
+  console.log(characterName);
+
+  document.getElementById(
+    "second-drink-image"
+  ).src = `${rickandmortyImageURL}`;
+  var charcter2H3 = document.getElementById("second-character");
+  charcter2H3.innerHTML = `${characterName}'s Drink`;
+};
+
+function charThreeAgain() {
+  var avatar = arrCharThree.at(-2).id;
+  var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+  var characterName = arrCharThree.at(-2).name;
+  console.log(characterName);
+
+  document.getElementById(
+    "third-drink-image"
+  ).src = `${rickandmortyImageURL}`;
+  var charcter3H3 = document.getElementById("third-character");
+  charcter3H3.innerHTML = `${characterName}'s Drink`;
+};
+
+function charFourAgain() {
+  var avatar = arrCharFour.at(-2).id;
+  var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+  var characterName = arrCharFour.at(-2).name;
+  console.log(characterName);
+
+  document.getElementById(
+    "fourth-drink-image"
+  ).src = `${rickandmortyImageURL}`;
+  var charcter4H3 = document.getElementById("fourth-character");
+  charcter4H3.innerHTML = `${characterName}'s Drink`;
+};
+
+function charFiveAgain() {
+  var avatar = arrCharFive.at(-2).id;
+  var rickandmortyImageURL = `https://rickandmortyapi.com/api/character/avatar/${avatar}.jpeg`;
+  var characterName = arrCharFive.at(-2).name;
+  console.log(characterName);
+
+  document.getElementById(
+    "fifth-drink-image"
+  ).src = `${rickandmortyImageURL}`;
+  var charcter5H3 = document.getElementById("fifth-character");
+  charcter5H3.innerHTML = `${characterName}'s Drink`;
 };
