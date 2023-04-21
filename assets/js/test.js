@@ -1,4 +1,3 @@
-
 var allCardIds = [
   {
     cardH3: document.getElementById("first-character"),
@@ -66,10 +65,10 @@ submitBtnEl.addEventListener("click", function (event) {
   }
   // Call getCharacter for each card
   for (let h = 0; h < allCardIds.length; h++) {
-  getCharacter(allCardIds[h]);
-  saveBaseLiquor();
-  getCocktailBase(allCardIds[h], baseLiquor);
-}
+    getCharacter(allCardIds[h]);
+    saveBaseLiquor();
+    getCocktailBase(allCardIds[h], baseLiquor);
+  }
 
   $(".cards").css("display", "inline-block");
 });
@@ -90,19 +89,17 @@ function getCocktailBase(card, baseLiquor) {
       return response.json();
     })
     .then(function (data) {
+      console.log(data);
       if (data.drinks.length === 0) {
         alert("wubba-lubba-dub-dub!  No results, try again!");
       } else {
         var randomNumber = Math.floor(Math.random() * data.drinks.length);
-        var drinkImage = data.drinks[randomNumber].strDrinkThumb;
-        card.cardDrinkImg.setAttribute("src", drinkImage);
-        card.cardH4.textContent = data.drinks[randomNumber].strDrink;
-        card.cardIngredients.textContent = data.drinks[randomNumber].strIngredient1 + ", " + data.drinks[randomNumber].strIngredient2 + ", " + data.drinks[randomNumber].strIngredient3;
-        card.cardDirections.textContent = data.drinks[randomNumber].strInstructions;
+        cocktailID = data.drinks[randomNumber].idDrink;
+        console.log(cocktailID);
+        getDrinkDetails();
       }
     });
 }
-
 
 // function for getting rest of ingredients and directions depending on cocktail ID
 function getDrinkDetails(cocktailID) {
@@ -118,6 +115,7 @@ function getDrinkDetails(cocktailID) {
         return response.json();
       })
       .then(function (data) {
+        // var cocktailTumbnail = data.drinks
         displayCards(data);
         previousDrinks.add(cocktailID);
       });
@@ -126,19 +124,26 @@ function getDrinkDetails(cocktailID) {
   }
 }
 
-
-function displayCards(card, data) {  
+function displayCards(card, data) {
   drinkImg.textContent = "";
-  
+
   // makes new drink image
   var drinkImg = document.createElement("img");
-  // clears any previous image
   drinkImg.setAttribute("class", "drink-image");
   drinkImg.src = data.drinks[0].strDrinkThumb;
   allCardIds.cardDrinkImg.appendChild(drinkImg);
-  
+
+  card.cardH4.textContent = data.drinks[randomNumber].strDrink;
+  card.cardIngredients.textContent =
+    data.drinks[randomNumber].strIngredient1 +
+    ", " +
+    data.drinks[randomNumber].strIngredient2 +
+    ", " +
+    data.drinks[randomNumber].strIngredient3;
+  card.cardDirections.textContent = data.drinks[randomNumber].strInstructions;
+
   allCardIds.cardH4.textContent = data.drinks[0].strDrink;
-  
+
   // clears previous ingredients
   card.cardIngredients.textContent = "";
   var ingredientsOneCard = data.drinks[0];
@@ -149,7 +154,7 @@ function displayCards(card, data) {
       ingredientsOneEl.appendChild(ingredientsOne);
     }
   }
-  
+
   cardH4.innerHTML = data.drinks[0].strInstructions;
 }
 
@@ -179,7 +184,7 @@ $(document).ready(function () {
   $(".card-split").on("dblclick", () => {
     $(".cards").toggleClass("transition");
   });
-  
+
   $(".cards").on("click", function () {
     $(this).toggleClass("expand");
   });
